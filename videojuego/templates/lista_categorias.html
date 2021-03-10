@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+
+{% block titulo %}
+   Lista de Categorías
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 class="app-page-title">Lista de Categorías</h1>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+    <a href="{% url 'categoria:nuevo' %}" class="btn btn-outline-primary">Nueva Categoría</a>
+    <table class="table table-hover">
+        <thead>
+            <th>ID</th>
+            <th>Nombre Categoría</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+                <tr>
+                    <td>{{categoria.id}}</td>
+                    <td>{{categoria.nombre}}</td>
+                    <td><a href="{% url 'categoria:editar' categoria.id %}" class="btn btn-outline-warning">Editar</a>
+                    <a href="{% url 'categoria:eliminar' categoria.id %}" class="btn btn-outline-danger">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock contenido %}

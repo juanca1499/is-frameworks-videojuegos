@@ -1,0 +1,15 @@
+{% extends 'dashboard.html' %}
+
+{% block titulo %}
+   Editar de Categoría
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1 class="app-page-title">Editar Categoría</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-outline-success">Guardar</button>
+    </form>
+{% endblock contenido %}
+

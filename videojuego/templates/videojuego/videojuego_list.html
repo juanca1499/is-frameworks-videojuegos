@@ -1,0 +1,39 @@
+{% extends 'dashboard.html' %}
+{% extends 'eliminar_modal.html' %}
+
+{% block titulo %}
+    Lista de Videojuegos
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 class="app-page-title">Lista de Videojuegos</h1>
+    <div class="app-card app-card-orders-table shadow-sm mb-5">
+        <table class="table table-hover">
+            <thead>
+                <th>Título</th>
+                <th>Año</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <!--Se pone 'object_list' porque así lo maneja el
+                    Framerowk si no lo cambiamos -->
+                    {% for videojuego in object_list %}
+                    <tr>
+                        <td>{{videojuego.titulo}}</td>
+                        <td>{{videojuego.anio}}</td>
+                        <td>{{videojuego.precio}}</td>
+                        <td>{{videojuego.descripcion}}</td>
+                        <td>{{videojuego.categoria_id}}</td>
+                        <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
+                            <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
+                            <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Eliminar</a>
+                            <!--<a href="{% url 'videojuego:eliminar' videojuego.id %}" class="btn btn-outline-danger">Eliminar</a></td> -->
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+</div>  
+            {% endblock contenido %}

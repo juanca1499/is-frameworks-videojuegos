@@ -1,0 +1,16 @@
+{% extends 'dashboard.html' %}
+
+{% block titulo %}
+   Nueva Categoría
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1 class="app-page-title">Nueva Categoría</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!--El form.as_p ayuda que Django cree el formulario 
+        automáticamente-->
+        {{form.as_p}}
+        <button type="submit" class="btn btn-outline-success">Agregar</button>
+    </form>
+{% endblock contenido %}
