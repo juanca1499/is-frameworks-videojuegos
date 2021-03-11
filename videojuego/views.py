@@ -93,6 +93,7 @@ def eliminar_vjuego(request,id):
 
 class VideoJuegoList(ListView):
     model = VideoJuego
+    template_name = 'videojuego:lista'
         # Para cambiar el nombre de la instancia #
     # context_object_name = 'videojuegos'
         # Para enviar información extra #
