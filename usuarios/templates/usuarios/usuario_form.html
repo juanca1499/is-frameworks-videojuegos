@@ -1,0 +1,19 @@
+{% extends 'dashboard.html' %}
+{% load static %}
+
+{% block titulo %}
+ {{etiqueta}} usuario
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 class="app-page-title">{{etiqueta}} usuario</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-outline-success">{{boton}}</button>
+    </form>
+{% endblock contenido %}
+
+{% block js %}
+    <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock js %}

@@ -7,59 +7,55 @@
 
 {% block contenido %}
 <h1 class="app-page-title">Lista de Videojuegos</h1>
-    <div class="app-card app-card-orders-table shadow-sm mb-5">
-        <table class="table table-hover">
-            <thead>
-                <th>Título</th>
-                <th>Año</th>
-                <th>Precio</th>
-                <th>Descripción</th>
-                <th>Categoría</th>
-                <th>Acciones</th>
-            </thead>
-            <tbody>
-                <!--Se pone 'object_list' porque así lo maneja el
-                    Framerowk si no lo cambiamos -->
-                    {% for videojuego in object_list %}
-                    <tr>
-                        <td>{{videojuego.titulo}}</td>
-                        <td>{{videojuego.anio}}</td>
-                        <td>{{videojuego.precio}}</td>
-                        <td>{{videojuego.descripcion}}</td>
-                        <td>{{videojuego.categoria_id}}</td>
-                        <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
-                            <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
-                            <button onclick="muestraModal('{% url 'videojuego:eliminar' videojuego.id %}', '{{videojuego.titulo}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+<div class="app-card app-card-orders-table shadow-sm mb-5">
+  <table class="table table-hover">
+    <thead>
+        <th>Título</th>
+        <th>Año</th>
+        <th>Precio</th>
+        <th>Descripción</th>
+        <th>Categoría</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+      <!--Se pone 'object_list' porque así lo maneja el
+      Framerowk si no lo cambiamos -->
+      {% for videojuego in object_list %}
+      <tr>
+          <td>{{videojuego.titulo}}</td>
+          <td>{{videojuego.anio}}</td>
+          <td>{{videojuego.precio}}</td>
+          <td>{{videojuego.descripcion}}</td>
+          <td>{{videojuego.categoria_id}}</td>
+          <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
+              <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
+              <button onclick="muestraModal('{% url 'videojuego:eliminar' videojuego.id %}', 'el Videojuego {{videojuego.titulo}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
+          </tr>
+          {% endfor %}
+    </tbody>
+  </table>
 </div>  
 
 <!-- Modal -->
-<div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eliminando registro</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="modalCuerpo">
-        </div>
-        <div class="modal-footer">
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminando Registro</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalCuerpo">
+      </div>
+      <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>
-          <!--<button type="button" class="btn btn-danger">Sí, estoy seguro</button> -->
-            <form id="formEliminar" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-danger">Sí, estoy seguro</button>
-            </form>
-        </div>
+          <form id="formEliminar" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-danger">Sí, estoy seguro</button>
+          </form>
       </div>
     </div>
   </div>
-
+</div>
 {% endblock contenido %} 
 
 {% block js %}

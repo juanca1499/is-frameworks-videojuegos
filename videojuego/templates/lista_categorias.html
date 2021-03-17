@@ -1,4 +1,5 @@
 {% extends 'dashboard.html' %}
+{% load static %}
 
 {% block titulo %}
    Lista de Categorías
@@ -7,7 +8,6 @@
 {% block contenido %}
 <h1 class="app-page-title">Lista de Categorías</h1>
 <div class="app-card app-card-orders-table shadow-sm mb-5">
-    <a href="{% url 'categoria:nuevo' %}" class="btn btn-outline-primary">Nueva Categoría</a>
     <table class="table table-hover">
         <thead>
             <th>ID</th>
@@ -20,10 +20,35 @@
                     <td>{{categoria.id}}</td>
                     <td>{{categoria.nombre}}</td>
                     <td><a href="{% url 'categoria:editar' categoria.id %}" class="btn btn-outline-warning">Editar</a>
-                    <a href="{% url 'categoria:eliminar' categoria.id %}" class="btn btn-outline-danger">Eliminar</a></td>
+                    <button onclick="muestraModal('{% url 'categoria:eliminar' categoria.id %}','la {{categoria.nombre}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminando Registro</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalCuerpo">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">No</button>
+            <form id="formEliminar" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger">Sí, estoy seguro</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock contenido %}
+
+{% block js %}
+  <script src="{% static 'js/funciones.js' %}"></script>
+{% endblock js %}

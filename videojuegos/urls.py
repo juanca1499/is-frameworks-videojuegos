@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Include recibe el nombre de la aplicación .urls
     path('categorias/',include('videojuego.urls_categoria')),
-    path('videojuegos/',include('videojuego.urls_videojuego'))
+    path('videojuegos/',include('videojuego.urls_videojuego')),
+    path('usuarios/',include('usuarios.urls'))
 ]
