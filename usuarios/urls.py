@@ -9,7 +9,7 @@ app_name = 'usuarios'
 
 urlpatterns = [
     path('nuevo/',views.NuevoUsuario.as_view(), name='nuevo'),
-    path('municipios/<int:id_estado>',views.obtiene_municipios, name='municipio'),
+    path('municipios/',views.obtiene_municipios, name='municipio'),
     # path('lista/', views.lista_categoria, name='lista'),
     # path('editar/<int:id>',views.editar_categoria,name='editar'),
     # path('eliminar/<int:id>', views.eliminar_categoria, name='eliminar'),

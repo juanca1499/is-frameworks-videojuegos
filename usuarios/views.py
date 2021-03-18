@@ -12,11 +12,19 @@ class NuevoUsuario(CreateView):
                     'boton' : 'Agregar'}
     success_url = reverse_lazy('videojuego:lista')
 
+    def form_valid(self, form):
+        user = form.save()
+        return super().form_valid(form)
 
-def obtiene_municipios(request, id_estado):
+def obtiene_municipios(request):
     # estado = get_object_or_404(Estado, id=id_estado)
+    if request.method == 'GET':
+        return JsonResponse({'error':'Petición incorrecta'}, safe=False, status=403)
+    id_estado = request.POST.get('id')
     municipios = Municipio.objects.filter(estado_id=id_estado)
     json = []
+    if not municipios:
+        json.append({'error' : 'No se encontraron municipios con ese estado'})
     for municipio in municipios:
         json.append({'id' : municipio.id,
                      'nombre' : municipio.nombre})

@@ -12,3 +12,13 @@ class UsuarioForm(forms.ModelForm):
                                                    'placeholder':'Contraseña'}), 
             'estado': forms.Select(attrs={'class':'form-control'})
         }
+
+    # Para guardar la contraseña de forma segura.
+    def save(self, commit=True):
+        user = super(UsuarioForm,self).save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+        return user
+
+    
