@@ -2,35 +2,41 @@
 {% load static %}
 
 {% block titulo %}
-    Lista de Videojuegos
+    Lista de Usuarios
 {% endblock titulo %}
 
 {% block contenido %}
-<h1 class="app-page-title">Lista de Videojuegos</h1>
+<h1 class="app-page-title">Lista de Usuarios</h1>
 <div class="app-card app-card-orders-table shadow-sm mb-5">
   <table class="table table-hover">
     <thead>
-        <th>Título</th>
-        <th>Año</th>
-        <th>Precio</th>
-        <th>Descripción</th>
-        <th>Categoría</th>
+        <th>ID</th>
+        <th>Nombre de usuario</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Estado</th>
+        <th>Municipio</th>
+        <th>Foto</th>
         <th>Acciones</th>
     </thead>
     <tbody>
       <!--Se pone 'object_list' porque así lo maneja el
-      Framework si no lo cambiamos -->
-      {% for videojuego in object_list %}
+      Framerowk si no lo cambiamos -->
+      {% for usuario in object_list %}
       <tr>
-          <td>{{videojuego.titulo}}</td>
-          <td>{{videojuego.anio}}</td>
-          <td>{{videojuego.precio}}</td>
-          <td>{{videojuego.descripcion}}</td>
-          <td>{{videojuego.categoria_id}}</td>
-          <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
-              <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
-              <button onclick="muestraModal('{% url 'videojuego:eliminar' videojuego.id %}', 'el Videojuego {{videojuego.titulo}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-          </tr>
+          <td>{{usuario.id}}</td>
+          <td>{{usuario.username}}</td>
+          <td>{{usuario.first_name}}</td>
+          <td>{{usuario.last_name}}</td>
+          <td>{{usuario.estado}}</td>
+          <td>{{usuario.municipio}}</td>
+          <td>{{usuario.foto}}</td>
+          <td>
+            <a href="{% url 'usuarios:ver' usuario.id %}" class="btn btn-outline-info">Ver</a>
+            <a href="{% url 'usuarios:editar' usuario.id %}" class="btn btn-outline-warning">Editar</a>
+            <button onclick="muestraModal('{% url 'usuarios:eliminar' usuario.id %}','el Usuario {{usuario.username}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</a>
+          </td>
+        </tr>
           {% endfor %}
     </tbody>
   </table>

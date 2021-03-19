@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block titulo %}
- {{etiqueta}} usuario
+ {{etiqueta}} Usuario
 {% endblock titulo %}
 
 {% block contenido %}
-<h1 class="app-page-title">{{etiqueta}} usuario</h1>
+<h1 class="app-page-title">{{etiqueta}} Usuario</h1>
+    <!--La propiedad enctype="multipart/form-data permite que se puedan
+    enviar imágenes a través del formulario. -->
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{form.as_p}}
@@ -17,3 +19,5 @@
 {% block js %}
     <script src="{% static 'js/funciones.js' %}"></script>
 {% endblock js %}
+
+    

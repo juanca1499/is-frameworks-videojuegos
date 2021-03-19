@@ -25,13 +25,15 @@ def nuevo_categoria(request):
             form.save()
             return redirect('categoria:lista')
         
-    context = {'form' : form }
+    context = {'form' : form,
+                'cat_nuevo' : True }
     return render(request,'nuevo_categoria.html',context)
 
 def lista_categoria(request):
     # Se necesitan recuperar los objetos tipo Categoria.
     categorias = Categoria.objects.all()
-    return render(request,'lista_categorias.html',{'categorias' : categorias})
+    return render(request,'lista_categorias.html',{'categorias' : categorias,
+                                                    'cat_lista' : True})
 
 def editar_categoria(request,id):
     categoria = get_object_or_404(Categoria,id=id)
@@ -94,6 +96,7 @@ def eliminar_vjuego(request,id):
 class VideoJuegoList(ListView):
     model = VideoJuego
     template_name = 'videojuego:lista'
+    extra_context = {'vj_lista' : True}
         # Para cambiar el nombre de la instancia #
     # context_object_name = 'videojuegos'
         # Para enviar información extra #

@@ -8,11 +8,12 @@ from . import views
 app_name = 'usuarios'
 
 urlpatterns = [
+    path('lista/',views.UsuarioList.as_view(),name='lista'),
     path('nuevo/',views.NuevoUsuario.as_view(), name='nuevo'),
+    path('editar/<int:pk>',views.UsuarioActualizar.as_view(),name='editar'),
+    path('eliminar/<int:pk>',views.UsuarioEliminar.as_view(),name='eliminar'),
+    path('ver/<int:pk>',views.UsuarioDetalle.as_view(),name='ver'),
     path('municipios/',views.obtiene_municipios, name='municipio'),
-    # path('lista/', views.lista_categoria, name='lista'),
-    # path('editar/<int:id>',views.editar_categoria,name='editar'),
-    # path('eliminar/<int:id>', views.eliminar_categoria, name='eliminar'),
 ]
 
 # eliminar/<int:id> Para indicar la recepción de un 
