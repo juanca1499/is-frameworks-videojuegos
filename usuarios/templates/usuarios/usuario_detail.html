@@ -15,5 +15,9 @@ Detalle del Usuario {{object.username}}
     {% if object.last_login %}
         <h3>Último Inicio de Sesión: {{object.last_login}}</h3>
     {% endif %}
-    <a href="{% url 'usuarios:lista' %}" class="btn btn-outline-secondary">Regresar</a>
+    {% if object.foto %} 
+        <h3>Foto de perfil:</h3>
+        <img height="30%" width="30%" src="{{usuario.foto.url}}">
+    {% endif %}
+    <p><a href="{% url 'usuarios:lista' %}" class="btn btn-outline-secondary">Regresar</a></p>
 {% endblock contenido %}

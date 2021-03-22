@@ -10,13 +10,13 @@
 <div class="app-card app-card-orders-table shadow-sm mb-5">
   <table class="table table-hover">
     <thead>
+        <th>Foto</th>
         <th>ID</th>
         <th>Nombre de usuario</th>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Estado</th>
         <th>Municipio</th>
-        <th>Foto</th>
         <th>Acciones</th>
     </thead>
     <tbody>
@@ -24,13 +24,14 @@
       Framerowk si no lo cambiamos -->
       {% for usuario in object_list %}
       <tr>
+        <!--perfiles/BDay.png-->
+          <td><img height="15%" width="15%" src="{{usuario.foto.url}}"></td>
           <td>{{usuario.id}}</td>
           <td>{{usuario.username}}</td>
           <td>{{usuario.first_name}}</td>
           <td>{{usuario.last_name}}</td>
           <td>{{usuario.estado}}</td>
           <td>{{usuario.municipio}}</td>
-          <td>{{usuario.foto}}</td>
           <td>
             <a href="{% url 'usuarios:ver' usuario.id %}" class="btn btn-outline-info">Ver</a>
             <a href="{% url 'usuarios:editar' usuario.id %}" class="btn btn-outline-warning">Editar</a>
