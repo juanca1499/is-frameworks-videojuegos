@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,9 +79,17 @@ WSGI_APPLICATION = 'videojuegos.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'videojuego',
+        'USER': 'videjuegouser',
+        'PASSWORD': 'Contraseña7654/(%&/',
+        'HOST': 'localhost',
+        'PORT': 3306
     }
 }
 
@@ -128,3 +137,19 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Cada que se haga un redireccionamiento, se reedirige 
+# a la página de login si no se ha iniciado sesión.
+LOGIN_URL = reverse_lazy('usuarios:login')
+# URL para reedirigir cuando se inicie sesión.
+LOGIN_REDIRECT_URL = reverse_lazy('usuarios:lista')
+# URL para reedirigir cuando se cierre sesión.
+LOGOUT_REDIRECT_URL = reverse_lazy('usuarios:login')
+
+# URL's y protocolos del servidor de correos
+# Seguridad (Gmail requiere este atributo en True)
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'garciamjuancarlos14@gmail.com'
+EMAIL_HOST_PASSWORD = 'disculpa'
+EMAIL_PORT = 587

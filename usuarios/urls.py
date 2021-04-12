@@ -14,6 +14,9 @@ urlpatterns = [
     path('eliminar/<int:pk>',views.UsuarioEliminar.as_view(),name='eliminar'),
     path('ver/<int:pk>',views.UsuarioDetalle.as_view(),name='ver'),
     path('municipios/',views.obtiene_municipios, name='municipio'),
+    path('login/',views.LoginUsuario.as_view(),name='login'),
+    path('signup/',views.SignUpUsuario.as_view(),name='signup'),
+    path('activar/<slug:uid64>/<slug:token>',views.ActivarCuenta.as_view(),name='activar'),
 ]
 
 # eliminar/<int:id> Para indicar la recepción de un 
