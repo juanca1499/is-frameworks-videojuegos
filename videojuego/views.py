@@ -4,9 +4,10 @@ from .models import Categoria, VideoJuego
 from .form_categoria import CategoriaForm
 from .form_videojuego import VideoJuegoForm
 from .form_videojuego import VideoJuegoForm
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+from django.db.models import Count
 
 #################################
 ## VISTAS BASADAS EN FUNCIONES ##
@@ -129,3 +130,23 @@ class VideoJuegoActualizar(UpdateView):
 
 class VideoJuegoDetalle(DetailView):
     model = VideoJuego
+
+class Grafica(TemplateView):
+    template_name = 'videojuego/grafica.html'
+
+    def get(self, request, *args, **kwargs):
+        videojuegos_categoria = VideoJuego.objects.all().values('categoria').annotate(cuantos=Count('categoria'))
+        categorias = Categoria.objects.all()
+        datos = []
+        for categoria in categorias:
+            cuantos = 0
+            for vj_categoria in videojuegos_categoria:
+                if vj_categoria['categoria'] == categoria.id:
+                    cuantos = vj_categoria['cuantos']
+                    break
+            datos.append({'name' : categoria.nombre,
+                        'data' : [cuantos]})
+
+        self.extra_context = {'datos' : datos}
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
