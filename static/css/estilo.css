@@ -1,0 +1,27 @@
+@page {
+    margin: 2cm;
+    @bottom-left {
+        background: #fbc847;
+        content: counter(page) "/" counter(pages);
+        height: 1cm;
+        text-align: center;
+        width: 1cm; }
+      @top-center {
+        background: #fbc847;
+        content: 'Encabezado';
+        display: block;
+        height: 1cm;
+        opacity: .5;
+        width: 100%; }
+      @top-right {
+        content: string(heading);
+        font-size: 9pt;
+        height: 1cm;
+        vertical-align: middle;
+        width: 100%; 
+    } 
+}
+
+h1 {
+    string-set: heading content();
+}

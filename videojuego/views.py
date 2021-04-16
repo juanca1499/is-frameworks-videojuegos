@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 # Se necesitan tener importadas las clases a usar.
+from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
+from django_weasyprint import WeasyTemplateResponseMixin
+from django.db.models import Count
+from django.conf import settings
 from .models import Categoria, VideoJuego
 from .form_categoria import CategoriaForm
 from .form_videojuego import VideoJuegoForm
 from .form_videojuego import VideoJuegoForm
-from django.views.generic import ListView, DetailView, TemplateView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.urls import reverse_lazy
-from django.db.models import Count
 
 #################################
 ## VISTAS BASADAS EN FUNCIONES ##
@@ -150,3 +152,37 @@ class Grafica(TemplateView):
         self.extra_context = {'datos' : datos}
         context = self.get_context_data(**kwargs)
         return self.render_to_response(context)
+
+class VistaVideoJuegosPDF(ListView):
+    model = VideoJuego
+    template_name = 'videojuego/videojuegos_lista_pdf.html'
+    suma = 0
+    for videojuego in VideoJuego.objects.all():
+        suma += videojuego.precio
+    extra_context = {'suma' : suma}
+
+class ListaVideoJuegosPDF(WeasyTemplateResponseMixin, VistaVideoJuegosPDF):
+    # output of MyModelView rendered as PDF with hardcoded CSS
+    pdf_stylesheets = [
+        settings.STATICFILES_DIRS[0] + 'css/bootstrap.min.css',
+        settings.STATICFILES_DIRS[0] + 'css/estilo.css',
+    ]
+    # show pdf in-line (default: True, show download dialog)
+    pdf_attachment = False
+    # custom response class to configure url-fetcher
+    pdf_filename = 'ListaVideojuegos.pdf'
+
+class VistaVideoJuegoDetallePDF(DetailView):
+    model = VideoJuego
+    template_name = 'videojuego/videojuego_detalle_pdf.html'
+
+class VideoJuegoDetallePDF(WeasyTemplateResponseMixin, VistaVideoJuegoDetallePDF):
+    # output of MyModelView rendered as PDF with hardcoded CSS
+    pdf_stylesheets = [
+        settings.STATICFILES_DIRS[0] + 'css/bootstrap.min.css',
+        settings.STATICFILES_DIRS[0] + 'css/estilo.css',
+    ]
+    # show pdf in-line (default: True, show download dialog)
+    pdf_attachment = False
+    # custom response class to configure url-fetcher
+    pdf_filename = 'DetalleVideojuego.pdf'

@@ -7,6 +7,7 @@
 
 {% block contenido %}
 <h1 class="app-page-title">Lista de Videojuegos</h1>
+<a href="{% url 'videojuego:lista_pdf' %}" class="btn btn-outline-secondary">Convertir Lista a PDF</a>
 <div class="app-card app-card-orders-table shadow-sm mb-5">
   <table class="table table-hover">
     <thead>
@@ -30,7 +31,9 @@
           <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
               <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
               <button onclick="muestraModal('{% url 'videojuego:eliminar' videojuego.id %}', 'el Videojuego {{videojuego.titulo}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-          </tr>
+              <a href="{% url 'videojuego:detalle_pdf' videojuego.id %}"><img src="{% static 'images/pdf-icon.png' %}" width="25px"></a>
+          </td>
+      </tr>
           {% endfor %}
     </tbody>
   </table>

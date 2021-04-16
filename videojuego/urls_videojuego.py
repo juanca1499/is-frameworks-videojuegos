@@ -17,6 +17,8 @@ urlpatterns = [
     path('eliminar/<int:pk>',views.VideoJuegoEliminar.as_view(),name='eliminar'),
     path('ver/<int:pk>',views.VideoJuegoDetalle.as_view(),name='ver'),
     path('grafica/',views.Grafica.as_view(),name='grafica'),
+    path('pdf-lista/',views.ListaVideoJuegosPDF.as_view(), name='lista_pdf'),
+    path('pdf-detalle/<int:pk>',views.VideoJuegoDetallePDF.as_view(),name='detalle_pdf'),
 ]
 
 # eliminar/<int:id> Para indicar la recepción de un 

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF detalle de Videojuego</title>
+  </head>
+  <body>
+    <h1 class="app-page-title">Detalle de Videojuego</h1>
+    <h2>Título: {{object.titulo}}</h2>
+    <h3>Categoría: {{object.categoria}}</h3>
+    <h3>Año: {{object.anio}}</h3>
+    <h3>Precio: {{object.precio}}</h3>
+    {% if object.descripcion %} 
+        <div>
+            <h3> Descripción: {{object.descripcion}} </h3>
+        </div> 
+    {% endif %}
+  </body>
+</html>
