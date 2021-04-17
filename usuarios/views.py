@@ -87,6 +87,7 @@ def obtiene_municipios(request):
     return JsonResponse(json, safe=False)
 
 class UsuarioList(ListView):
+    paginate_by = 5
     model = Usuario
     extra_context = {'us_lista' : True}                
     template_name = 'usuarios:lista'

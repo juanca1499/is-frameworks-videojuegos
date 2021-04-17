@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django_weasyprint import WeasyTemplateResponseMixin
 from django.db.models import Count
 from django.conf import settings
+from django.core.paginator import Paginator
 from .models import Categoria, VideoJuego
 from .form_categoria import CategoriaForm
 from .form_videojuego import VideoJuegoForm
@@ -35,8 +36,12 @@ def nuevo_categoria(request):
 def lista_categoria(request):
     # Se necesitan recuperar los objetos tipo Categoria.
     categorias = Categoria.objects.all()
+    paginator = Paginator(categorias, 5) 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     return render(request,'lista_categorias.html',{'categorias' : categorias,
-                                                    'cat_lista' : True})
+                                                    'cat_lista' : True,
+                                                    'page_obj' : page_obj})
 
 def editar_categoria(request,id):
     categoria = get_object_or_404(Categoria,id=id)
@@ -97,6 +102,7 @@ def eliminar_vjuego(request,id):
 #############################
 
 class VideoJuegoList(ListView):
+    paginate_by = 5
     model = VideoJuego
     template_name = 'videojuego:lista'
     extra_context = {'vj_lista' : True}
