@@ -6,7 +6,7 @@ class UsuarioForm(forms.ModelForm):
     # password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = Usuario
-        fields = ('username','password','email','first_name','last_name','estado','municipio','foto')
+        fields = ('username','password','email','first_name','last_name','curp','estado','municipio','foto')
 
         widgets = {
             'username' : forms.TextInput(attrs={'class' : 'form-control',
@@ -18,7 +18,9 @@ class UsuarioForm(forms.ModelForm):
             'first_name' : forms.TextInput(attrs={'class' : 'form-control',
                                                     'placeholder' : 'Indica tu nombre'}),
             'last_name' : forms.TextInput(attrs={'class' : 'form-control',
-                                                 'placeholder' : 'Indica tus apellidos'}),                                                    
+                                                 'placeholder' : 'Indica tus apellidos'}),  
+            'curp' : forms.TextInput(attrs={'class' : 'form-control',
+                                            'placeholder' : 'Indica tu CURP'}),                                                                                              
             'estado' : forms.Select(attrs={'class':'form-control'}),
             'municipio' : forms.Select(attrs={'class':'form-control'}),
         }
