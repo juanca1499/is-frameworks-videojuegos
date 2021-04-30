@@ -7,6 +7,7 @@ from django_weasyprint import WeasyTemplateResponseMixin
 from django.db.models import Count
 from django.conf import settings
 from django.core.paginator import Paginator
+from django.utils.translation import gettext as _
 from .models import Categoria, VideoJuego
 from .form_categoria import CategoriaForm
 from .form_videojuego import VideoJuegoForm
@@ -123,8 +124,8 @@ class VideoJuegoEliminar(DeleteView):
 class VideoJuegoCrear(CreateView):
     model = VideoJuego
     form_class = VideoJuegoForm
-    extra_context = {'etiqueta' : 'Nuevo',
-    'boton' : 'Agregar',
+    extra_context = {'etiqueta' : _('Nuevo'),
+    'boton' : _('Agregar'),
     'vj_nuevo' : True}
     # fields = '__all__'
     success_url = reverse_lazy('videojuego:lista')
@@ -132,8 +133,8 @@ class VideoJuegoCrear(CreateView):
 class VideoJuegoActualizar(UpdateView):
     model = VideoJuego
     form_class = VideoJuegoForm
-    extra_context = {'etiqueta' : 'Actualizar',
-    'boton' : 'Guardar'}
+    extra_context = {'etiqueta' : _('Actualizar'),
+    'boton' : _('Guardar')}
     success_url = reverse_lazy('videojuego:lista')
 
 class VideoJuegoDetalle(DetailView):

@@ -1,11 +1,12 @@
 {% extends 'dashboard.html' %}
+{% load i18n %}
 
 {% block titulo %}
- {{etiqueta}} Videojuego
+ {{etiqueta}} {% translate "Videojuego" %}
 {% endblock titulo %}
 
 {% block contenido %}
-<h1 class="app-page-title">{{etiqueta}} Videojuego</h1>
+<h1 class="app-page-title">{{etiqueta}} {% translate "Videojuego" %}</h1>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}

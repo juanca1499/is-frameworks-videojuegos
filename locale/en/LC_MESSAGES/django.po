@@ -1,0 +1,499 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-30 22:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: usuarios/templates/confirmar_cuenta.html:6
+msgid "Confirmar cuenta"
+msgstr "Confirm Account"
+
+#: usuarios/templates/confirmar_cuenta.html:10
+msgid "Validar cuenta"
+msgstr "Validate account"
+
+#: usuarios/templates/confirmar_cuenta.html:19
+msgid "Activar cuenta"
+msgstr "Activate account"
+
+#: usuarios/templates/login.html:7
+#, fuzzy
+#| msgid "Lista de Videojuegos"
+msgid "Iniciar sesión Videojuegos"
+msgstr "List of Videogames"
+
+#: usuarios/templates/login.html:24
+#, fuzzy
+#| msgid "Página no encontrada"
+msgid "Usuario no encontrado"
+msgstr "Page not found"
+
+#: usuarios/templates/login.html:41
+#, fuzzy
+#| msgid "Activar cuenta en el Sistema de Videojuegos"
+msgid "Inicio de sesión Sistema de Videojuegos"
+msgstr "Activate account on Videogames System"
+
+#: usuarios/templates/login.html:57
+msgid "Recordar"
+msgstr "Remember"
+
+#: usuarios/templates/login.html:63
+msgid "¿Olvidaste tu contraseña?"
+msgstr "Do you forgot your password?"
+
+#: usuarios/templates/login.html:69
+msgid "Ingresar"
+msgstr "Login"
+
+#: usuarios/templates/login.html:74
+msgid "¿No tienes cuenta? ¡Regístrate!"
+msgstr "You do not have account? Sign up!"
+
+#: usuarios/templates/login.html:74
+msgid "aquí"
+msgstr "here"
+
+#: usuarios/templates/signup.html:7
+#, fuzzy
+#| msgid "Lista de Videojuegos"
+msgid "Registrarse Videojuegos"
+msgstr "List of Videogames"
+
+#: usuarios/templates/signup.html:31
+#, fuzzy
+#| msgid "Activar cuenta en el Sistema de Videojuegos"
+msgid "Registro en el Sistema de Videojuegos"
+msgstr "Activate account on Videogames System"
+
+#: usuarios/templates/signup.html:41
+msgid "Estoy de acuerdo"
+msgstr "I am agree"
+
+#: usuarios/templates/signup.html:41
+msgid "Términos de servicio"
+msgstr "Terms of service"
+
+#: usuarios/templates/signup.html:41
+msgid "Política de Privacidad"
+msgstr "Privacy Policy"
+
+#: usuarios/templates/signup.html:47
+msgid "Registrarse"
+msgstr "Sign up"
+
+#: usuarios/templates/signup.html:51
+msgid "¿Ya tienes una cuenta?"
+msgstr "Already have an account?"
+
+#: usuarios/templates/usuarios/usuario_detail.html:10
+#: usuarios/templates/usuarios/usuario_list.html:19
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: usuarios/templates/usuarios/usuario_detail.html:11
+#: usuarios/templates/usuarios/usuario_list.html:20
+msgid "Nombre"
+msgstr "Name"
+
+#: usuarios/templates/usuarios/usuario_detail.html:12
+msgid "Apellidos"
+msgstr "Last name"
+
+#: usuarios/templates/usuarios/usuario_detail.html:13
+#: usuarios/templates/usuarios/usuario_list.html:22
+msgid "Estado"
+msgstr "State"
+
+#: usuarios/templates/usuarios/usuario_detail.html:14
+msgid "Municipio"
+msgstr "Municipalities"
+
+#: usuarios/templates/usuarios/usuario_detail.html:15
+msgid "Fecha de registro"
+msgstr "Date of signup"
+
+#: usuarios/templates/usuarios/usuario_detail.html:17
+msgid "Último Inicio de Sesión"
+msgstr "Last login access"
+
+#: usuarios/templates/usuarios/usuario_detail.html:20
+msgid "Foto de perfil"
+msgstr "Profile picture"
+
+#: usuarios/templates/usuarios/usuario_detail.html:23
+#: videojuego/templates/videojuego/videojuego_detail.html:18
+msgid "Regresar"
+msgstr "Return"
+
+#: usuarios/templates/usuarios/usuario_form.html:6
+#: usuarios/templates/usuarios/usuario_form.html:10
+#, python-format
+msgid " %(etiqueta)s "
+msgstr ""
+
+#: usuarios/templates/usuarios/usuario_form.html:6
+#: usuarios/templates/usuarios/usuario_form.html:10
+msgid "Usuario"
+msgstr "User"
+
+#: usuarios/templates/usuarios/usuario_form.html:16
+#, python-format
+msgid " %(boton)s "
+msgstr ""
+
+#: usuarios/templates/usuarios/usuario_list.html:10
+#: usuarios/templates/usuarios/usuario_list.html:14
+msgid "Lista de Usuarios"
+msgstr "List of Users"
+
+#: usuarios/templates/usuarios/usuario_list.html:18
+msgid "Foto"
+msgstr "Picture"
+
+#: usuarios/templates/usuarios/usuario_list.html:21
+msgid "Apellido"
+msgstr "Last name"
+
+#: usuarios/templates/usuarios/usuario_list.html:24
+#: videojuego/templates/lista_categorias.html:16
+#: videojuego/templates/videojuego/videojuego_list.html:20
+msgid "Acciones"
+msgstr "Actions"
+
+#: usuarios/templates/usuarios/usuario_list.html:44
+msgid "Ver"
+msgstr "View"
+
+#: usuarios/templates/usuarios/usuario_list.html:45
+#: videojuego/templates/lista_categorias.html:23
+#: videojuego/templates/videojuego/videojuego_list.html:34
+msgid "Editar"
+msgstr "Edit"
+
+#: usuarios/templates/usuarios/usuario_list.html:46
+#: videojuego/templates/lista_categorias.html:24
+#: videojuego/templates/videojuego/videojuego_list.html:35
+msgid "Eliminar"
+msgstr "Delete"
+
+#: usuarios/templates/usuarios/usuario_list.html:47
+msgid "Activar"
+msgstr "Activate"
+
+#: usuarios/templates/usuarios/usuario_list.html:48
+msgid "Grupos"
+msgstr "Groups"
+
+#: usuarios/templates/usuarios/usuario_list.html:62
+#: usuarios/templates/usuarios/usuario_list.html:66
+#: videojuego/templates/lista_categorias.html:36
+#: videojuego/templates/videojuego/videojuego_list.html:49
+#: videojuego/templates/videojuego/videojuego_list.html:53
+msgid "Previo"
+msgstr "Previous"
+
+#: usuarios/templates/usuarios/usuario_list.html:82
+#: usuarios/templates/usuarios/usuario_list.html:86
+#: videojuego/templates/lista_categorias.html:56
+#: videojuego/templates/videojuego/videojuego_list.html:69
+#: videojuego/templates/videojuego/videojuego_list.html:73
+msgid "Siguiente"
+msgstr "Next"
+
+#: usuarios/templates/usuarios/usuario_list.html:97
+#: videojuego/templates/lista_categorias.html:71
+#: videojuego/templates/videojuego/videojuego_list.html:84
+msgid "Eliminando Registro"
+msgstr "Deleting Record"
+
+#: usuarios/templates/usuarios/usuario_list.html:103
+#: videojuego/templates/videojuego/videojuego_list.html:90
+msgid "No"
+msgstr "No"
+
+#: usuarios/templates/usuarios/usuario_list.html:106
+#: videojuego/templates/lista_categorias.html:80
+#: videojuego/templates/videojuego/videojuego_list.html:93
+msgid "Sí, estoy seguro"
+msgstr "Yes, I'm sure"
+
+#: usuarios/templates/usuarios/usuario_list.html:118
+msgid "Asignación de Grupos"
+msgstr "Group assignment"
+
+#: usuarios/templates/usuarios/usuario_list.html:124
+#, fuzzy
+#| msgid "Nombre Categoría"
+msgid "Nombre del grupo"
+msgstr "Category Name"
+
+#: usuarios/templates/usuarios/usuario_list.html:125
+msgid "Habilitado"
+msgstr "Enabled"
+
+#: usuarios/templates/usuarios/usuario_list.html:145
+#, fuzzy
+#| msgid "Descargar"
+msgid "Descartar cambios"
+msgstr "Download"
+
+#: usuarios/templates/usuarios/usuario_list.html:148
+#, fuzzy
+#| msgid "Guardar"
+msgid "Guardar cambios"
+msgstr "Save"
+
+#: usuarios/views.py:26 videojuego/views.py:127
+msgid "Nuevo"
+msgstr "New"
+
+#: usuarios/views.py:27 videojuego/templates/dashboard.html:218
+#: videojuego/templates/dashboard.html:242
+#: videojuego/templates/dashboard.html:265
+#: videojuego/templates/nuevo_categoria.html:15 videojuego/views.py:128
+msgid "Agregar"
+msgstr "Add"
+
+#: usuarios/views.py:48
+msgid "Activar cuenta en el Sistema de Videojuegos"
+msgstr "Activate account on Videogames System"
+
+#: usuarios/views.py:73
+msgid "¡Cuenta activada con éxito!"
+msgstr "Your account has been successfully activated!"
+
+#: usuarios/views.py:75
+msgid "Token inválido, contacta al administrador"
+msgstr "Invalid Token, please contact with administrator"
+
+#: usuarios/views.py:83 usuarios/views.py:96
+msgid "Petición incorrecta"
+msgstr "Wrong request"
+
+#: usuarios/views.py:88
+msgid "No se encontraron municipios con ese estado"
+msgstr "No municipalities were found for that state"
+
+#: usuarios/views.py:101
+msgid "El usuario no tiene grupos asignados"
+msgstr "User has no assigned groups"
+
+#: usuarios/views.py:121 videojuego/views.py:136
+msgid "Actualizar"
+msgstr "Update"
+
+#: usuarios/views.py:122 videojuego/templates/editar_categoria.html:13
+#: videojuego/views.py:137
+msgid "Guardar"
+msgstr "Save"
+
+#: videojuego/templates/403.html:6
+msgid "Permiso denegado"
+msgstr "Permission denied"
+
+#: videojuego/templates/403.html:12
+msgid "No tienes permisos para el recurso solicitado."
+msgstr "You do not have permissions for the requested resource"
+
+#: videojuego/templates/404.html:5
+msgid "Página no encontrada"
+msgstr "Page not found"
+
+#: videojuego/templates/dashboard.html:40
+msgid "Menu"
+msgstr "Menu"
+
+#: videojuego/templates/dashboard.html:66
+msgid "Notificaciones"
+msgstr "Notifications"
+
+#: videojuego/templates/dashboard.html:153
+msgid "Cuenta"
+msgstr "Account"
+
+#: videojuego/templates/dashboard.html:154
+#, fuzzy
+#| msgid "Notificaciones"
+msgid "Configuraciones"
+msgstr "Notifications"
+
+#: videojuego/templates/dashboard.html:156
+msgid "Cerrar Sesión"
+msgstr "Log out"
+
+#: videojuego/templates/dashboard.html:184
+msgid "General"
+msgstr "Overview"
+
+#: videojuego/templates/dashboard.html:196
+msgid "Documentos"
+msgstr "Documents"
+
+#: videojuego/templates/dashboard.html:208
+msgid "Usuarios"
+msgstr "Users"
+
+#: videojuego/templates/dashboard.html:217
+#: videojuego/templates/dashboard.html:241
+#: videojuego/templates/dashboard.html:264
+msgid "Lista"
+msgstr "List"
+
+#: videojuego/templates/dashboard.html:232
+msgid "Videojuegos"
+msgstr "Videogame"
+
+#: videojuego/templates/dashboard.html:255
+msgid "Categorías"
+msgstr "Categories"
+
+#: videojuego/templates/dashboard.html:279
+msgid "Gráficas"
+msgstr "Charts"
+
+#: videojuego/templates/dashboard.html:292
+msgid "Ayuda"
+msgstr "Help"
+
+#: videojuego/templates/dashboard.html:309
+msgid "Ajustes"
+msgstr "Settings"
+
+#: videojuego/templates/dashboard.html:321
+msgid "Descargar"
+msgstr "Download"
+
+#: videojuego/templates/dashboard.html:333
+msgid "Licencia"
+msgstr "License"
+
+#: videojuego/templates/editar_categoria.html:5
+msgid "Editar de Categoría"
+msgstr "Edit Category"
+
+#: videojuego/templates/editar_categoria.html:9
+msgid "Editar Categoría"
+msgstr "Edit Category"
+
+#: videojuego/templates/lista_categorias.html:6
+#: videojuego/templates/lista_categorias.html:10
+msgid "Lista de Categorías"
+msgstr "List Of Categories"
+
+#: videojuego/templates/lista_categorias.html:15
+msgid "Nombre Categoría"
+msgstr "Category Name"
+
+#: videojuego/templates/nuevo_categoria.html:5
+#: videojuego/templates/nuevo_categoria.html:9
+msgid "Nueva Categoría"
+msgstr "New Category"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:5
+msgid "Detalle del videojuego"
+msgstr "Videogame detail"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:9
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:13
+#: videojuego/templates/videojuego/videojuego_list.html:15
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:16
+msgid "Título"
+msgstr "Title"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:10
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:14
+#: videojuego/templates/videojuego/videojuego_list.html:19
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:20
+msgid "Categoría"
+msgstr "Category"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:11
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:15
+#: videojuego/templates/videojuego/videojuego_list.html:16
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:17
+msgid "Año"
+msgstr "Year"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:12
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:16
+#: videojuego/templates/videojuego/videojuego_list.html:17
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:18
+msgid "Precio"
+msgstr "Price"
+
+#: videojuego/templates/videojuego/videojuego_detail.html:15
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:19
+#: videojuego/templates/videojuego/videojuego_list.html:18
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:19
+msgid "Descripción"
+msgstr "Description"
+
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:9
+msgid "PDF detalle de Videojuego"
+msgstr "Videogame detail PDF"
+
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:12
+#, fuzzy
+#| msgid "Detalle del videojuego"
+msgid "Detalle de Videojuego"
+msgstr "Videogame detail"
+
+#: videojuego/templates/videojuego/videojuego_form.html:5
+#: videojuego/templates/videojuego/videojuego_form.html:9
+msgid "Videojuego"
+msgstr "Videogame"
+
+#: videojuego/templates/videojuego/videojuego_list.html:6
+#: videojuego/templates/videojuego/videojuego_list.html:10
+msgid "Lista de Videojuegos"
+msgstr "List of Videogames"
+
+#: videojuego/templates/videojuego/videojuego_list.html:11
+msgid "Convertir Lista a PDF"
+msgstr "Convert List to PDF"
+
+#: videojuego/templates/videojuego/videojuego_list.html:33
+msgid "View"
+msgstr "View"
+
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:36
+msgid "La suma de los precios de los Videojuegos es"
+msgstr "The sum of the prices of the Videogames is"
+
+#: videojuegos/settings.py:136
+msgid "Spanish"
+msgstr ""
+
+#: videojuegos/settings.py:137
+msgid "English"
+msgstr ""
+
+#~ msgid "Eliminando Videojuego"
+#~ msgstr "Deleting Videogame"
+
+#~ msgid "¿Quieres eliminar el videojuego"
+#~ msgstr "Do you want to delete the videogame?"
+
+#~ msgid "Mejor no"
+#~ msgstr "No"
+
+#~ msgid "Next"
+#~ msgstr "Siguiente"
+
+#~ msgid "¿Está seguro que desea eliminar el registro"
+#~ msgstr "Are you sure you want to delete the record?"

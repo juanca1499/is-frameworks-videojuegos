@@ -1,23 +1,24 @@
 {% extends 'dashboard.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block titulo %}
 Detalle del Usuario {{object.username}}
 {% endblock titulo %}
 
 {% block contenido %}
-    <h1>Nombre de usuario: {{object.username}}</h1>
-    <h3>Nombre: {{object.first_name}}</h3>
-    <h3>Apellidos: {{object.last_name}}</h3>
-    <h3>Estado: {{object.estado}}</h3>
-    <h3>Municipio: {{object.municipio}}</h3>
-    <h3>Fecha de registro: {{object.date_joined}}</h3>
+    <h1>{% translate "Nombre de usuario" %}: {{object.username}}</h1>
+    <h3>{% translate "Nombre" %}: {{object.first_name}}</h3>
+    <h3>{% translate "Apellidos" %}: {{object.last_name}}</h3>
+    <h3>{% translate "Estado" %}: {{object.estado}}</h3>
+    <h3>{% translate "Municipio" %}: {{object.municipio}}</h3>
+    <h3>{% translate "Fecha de registro" %}: {{object.date_joined}}</h3>
     {% if object.last_login %}
-        <h3>Último Inicio de Sesión: {{object.last_login}}</h3>
+        <h3>{% translate "Último Inicio de Sesión" %}: {{object.last_login}}</h3>
     {% endif %}
     {% if object.foto %} 
-        <h3>Foto de perfil:</h3>
+        <h3>{% translate "Foto de perfil" %}:</h3>
         <img height="30%" width="30%" src="{{usuario.foto.url}}">
     {% endif %}
-    <p><a href="{% url 'usuarios:lista' %}" class="btn btn-outline-secondary">Regresar</a></p>
+    <p><a href="{% url 'usuarios:lista' %}" class="btn btn-outline-secondary">{% translate "Regresar" %}</a></p>
 {% endblock contenido %}

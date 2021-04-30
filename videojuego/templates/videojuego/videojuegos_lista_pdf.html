@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,11 +13,11 @@
     <div class="app-card app-card-orders-table shadow-sm mb-5">
       <table class="table table-hover">
         <thead>
-          <th>Título</th>
-          <th>Año</th>
-          <th>Precio</th>
-          <th>Descripción</th>
-          <th>Categoría</th>
+          <th>{% translate "Título" %}</th>
+          <th>{% translate "Año" %}</th>
+          <th>{% translate "Precio" %}</th>
+          <th>{% translate "Descripción" %}</th>
+          <th>{% translate "Categoría" %}</th>
         </thead>
         <tbody>
           <!--Se pone 'object_list' porque así lo maneja el
@@ -31,7 +33,7 @@
           {% endfor %}
         </tbody>
       </table>
-      <h4>La suma de los precios de los Videojuegos es = ${{suma}}</h4>
+      <h4>{% translate "La suma de los precios de los Videojuegos es" %} = ${{suma}}</h4>
     </div>  
   </body>
 </html>

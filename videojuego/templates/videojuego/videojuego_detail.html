@@ -1,18 +1,19 @@
 {% extends 'dashboard.html' %}
+{% load i18n %}
 
 {% block titulo %}
-Detalle del videojuego {{object.title}}
+{% translate "Detalle del videojuego" %} {{object.title}}
 {% endblock titulo %}
 
 {% block contenido %}
-    <h1>Título: {{object.titulo}}</h1>
-    <h3>Categoría: {{object.categoria}}</h3>
-    <h3>Año: {{object.anio}}</h3>
-    <h3>Precio: {{object.precio}}</h3>
+    <h1>{% translate "Título" %} : {{object.titulo}}</h1>
+    <h3>{% translate "Categoría" %} : {{object.categoria}}</h3>
+    <h3>{% translate "Año" %} : {{object.anio}}</h3>
+    <h3>{% translate "Precio" %}: {{object.precio}}</h3>
     {% if object.descripcion %} 
     <div>
-        <h3> Descripción: {{object.descripcion}} </h3>
+        <h3> {% translate "Descripción" %}: {{object.descripcion}} </h3>
     </div> 
     {% endif %}
-    <a href="{% url 'videojuego:lista' %}" class="btn btn-outline-secondary">Regresar</a>
+    <a href="{% url 'videojuego:lista' %}" class="btn btn-outline-secondary">{% translate "Regresar" %}</a>
 {% endblock contenido %}

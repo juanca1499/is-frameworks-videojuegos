@@ -13,6 +13,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin, AccessMixin
 from django.contrib.auth.models import Group
+from django.utils.translation import gettext as _
 
 from .token import token_activacion
 from .models import Usuario, Municipio, Estado
@@ -22,8 +23,8 @@ class NuevoUsuario(PermissionRequiredMixin,CreateView):
     model = Usuario
     form_class = UsuarioForm
     permission_required = 'usuarios.add_usuario'
-    extra_context = {'etiqueta' : 'Nuevo',
-    'boton' : 'Agregar',
+    extra_context = {'etiqueta' : _('Nuevo'),
+    'boton' : _('Agregar'),
     'us_nuevo' : True}                
     success_url = reverse_lazy('usuarios:lista')
 
@@ -44,7 +45,7 @@ class NuevoUsuario(PermissionRequiredMixin,CreateView):
             'token' : token
         }
         )
-        asunto = 'Activar cuenta en el Sistema de Videojuegos'
+        asunto = _('Activar cuenta en el Sistema de Videojuegos')
         to = user.email
         # En el to se puede poner una lista de usuarios
         email = EmailMessage(
@@ -69,9 +70,9 @@ class ActivarCuenta(TemplateView):
         if user and token_activacion.check_token(user,token):
             user.is_active = True
             user.save()
-            messages.success(self.request,'¡Cuenta activada con éxito!')
+            messages.success(self.request,_('¡Cuenta activada con éxito!'))
         else:
-            messages.error(self.request,'Token inválido, contacta al administrador')
+            messages.error(self.request,_('Token inválido, contacta al administrador'))
         
         return redirect('usuarios:login')
 
@@ -79,12 +80,12 @@ class ActivarCuenta(TemplateView):
 def obtiene_municipios(request):
     # estado = get_object_or_404(Estado, id=id_estado)
     if request.method == 'GET':
-        return JsonResponse({'error':'Petición incorrecta'}, safe=False, status=403)
+        return JsonResponse({'error':_('Petición incorrecta')}, safe=False, status=403)
     id_estado = request.POST.get('id')
     municipios = Municipio.objects.filter(estado_id=id_estado)
     json = []
     if not municipios:
-        json.append({'error' : 'No se encontraron municipios con ese estado'})
+        json.append({'error' : _('No se encontraron municipios con ese estado')})
     for municipio in municipios:
         json.append({'id' : municipio.id,
                      'nombre' : municipio.nombre})
@@ -92,12 +93,12 @@ def obtiene_municipios(request):
 
 def obtiene_usuario_grupos(request):
     if request.method != 'GET':
-        return JsonResponse({'error':'Petición incorrecta'}, safe=False, status=403)
+        return JsonResponse({'error':_('Petición incorrecta')}, safe=False, status=403)
     id_usuario = request.GET.get('id')
     grupos = Groups.objects.filter(user_id=id_usuario)
     json = []
     if not grupos:
-        json.append({'error' : 'El usuario no tiene grupos asignados'})
+        json.append({'error' : _('El usuario no tiene grupos asignados')})
     for grupo in grupos:
         json.append({'id_usuario' :id_usuario,
                      'id_grupo' :grupo})
@@ -117,8 +118,8 @@ class UsuarioActualizar(PermissionRequiredMixin,UpdateView):
     model = Usuario
     permission_required = 'usuarios.change_usuario'
     form_class = UsuarioForm
-    extra_context = {'etiqueta' : 'Actualizar',
-                     'boton' : 'Guardar'}
+    extra_context = {'etiqueta' : _('Actualizar'),
+                     'boton' : _('Guardar')}
     success_url = reverse_lazy('usuarios:lista')
 
 class UsuarioEliminar(PermissionRequiredMixin,DeleteView):

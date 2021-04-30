@@ -1,13 +1,15 @@
+{% load i18n %}
+
 {% extends 'dashboard.html' %}
 
 {% block titulo %}
-Permiso denegado
+{% trans "Permiso denegado" %}
 {% endblock titulo %}
 
 {% block contenido %}
 <div class="row">
     <div class="col-md-12">
-        <h1>No tienes permisos para el recurso solicitado.</h1>
+        <h1>{% translate "No tienes permisos para el recurso solicitado."%}</h1>
     </div>
 </div>
 {% endblock contenido %}

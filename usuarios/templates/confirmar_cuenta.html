@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Confirmar cuenta</title>
+        <title>{% translate "Confirmar cuenta" %}</title>
     </head>
     <body>
         <div>
-            <h3>Validar cuenta</h3>
-            <p>Hola {{usuario.username}}</p>
+            <h3>{% translate "Validar cuenta" %}</h3>
+            <p>{% translate "Hola"} {{usuario.username}}</p>
             <p>
                 Para completar tu registro en el sistema de <b>Videojuegos</b>
                 debes dar click en el siguiente enlace: 
@@ -16,7 +16,7 @@
             <br>
             <hr>
             <p>
-                <a href="http://{{dominio}}{% url 'usuarios:activar' uid64=uid token=token %}">Activar cuenta</a>
+                <a href="http://{{dominio}}{% url 'usuarios:activar' uid64=uid token=token %}">{% translate "Activar cuenta" %}</a>
             </p>
         </div>
     </body>
