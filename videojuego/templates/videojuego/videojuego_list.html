@@ -28,7 +28,8 @@
           <td>{{videojuego.precio}}</td>
           <td>{{videojuego.descripcion}}</td>
           <td>{{videojuego.categoria_id}}</td>
-          <td><a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
+          <td>
+              <a href="{% url 'videojuego:ver' videojuego.id %}" class="btn btn-outline-info">Ver</a>
               <a href="{% url 'videojuego:editar' videojuego.id %}" class="btn btn-outline-warning">Editar</a>
               <button onclick="muestraModal('{% url 'videojuego:eliminar' videojuego.id %}', 'el Videojuego {{videojuego.titulo}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
               <a href="{% url 'videojuego:detalle_pdf' videojuego.id %}"><img src="{% static 'images/pdf-icon.png' %}" width="25px"></a>

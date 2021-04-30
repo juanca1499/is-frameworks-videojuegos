@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView, View
 from django.urls import reverse_lazy
 from django.http import JsonResponse
 from django.contrib.auth.views import LoginView 
@@ -11,13 +11,17 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.core.mail import EmailMessage 
 from django.contrib import messages
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin, AccessMixin
+from django.contrib.auth.models import Group
+
 from .token import token_activacion
 from .models import Usuario, Municipio, Estado
 from .forms import UsuarioForm, UsuarioRegistroForm
 
-class NuevoUsuario(CreateView):
+class NuevoUsuario(PermissionRequiredMixin,CreateView):
     model = Usuario
     form_class = UsuarioForm
+    permission_required = 'usuarios.add_usuario'
     extra_context = {'etiqueta' : 'Nuevo',
     'boton' : 'Agregar',
     'us_nuevo' : True}                
@@ -86,25 +90,45 @@ def obtiene_municipios(request):
                      'nombre' : municipio.nombre})
     return JsonResponse(json, safe=False)
 
-class UsuarioList(ListView):
+def obtiene_usuario_grupos(request):
+    if request.method != 'GET':
+        return JsonResponse({'error':'Petición incorrecta'}, safe=False, status=403)
+    id_usuario = request.GET.get('id')
+    grupos = Groups.objects.filter(user_id=id_usuario)
+    json = []
+    if not grupos:
+        json.append({'error' : 'El usuario no tiene grupos asignados'})
+    for grupo in grupos:
+        json.append({'id_usuario' :id_usuario,
+                     'id_grupo' :grupo})
+    return JsonResponse(json, safe=False)
+
+class UsuarioList(PermissionRequiredMixin,ListView):
     paginate_by = 5
     model = Usuario
-    extra_context = {'us_lista' : True}                
+    permission_required = 'usuarios.view_usuario'
+    lista_grupos = Group.objects.all()
+
+    extra_context = {'us_lista' : True,
+                     'lista_grupos': lista_grupos}                
     template_name = 'usuarios:lista'
 
-class UsuarioActualizar(UpdateView):
+class UsuarioActualizar(PermissionRequiredMixin,UpdateView):
     model = Usuario
+    permission_required = 'usuarios.change_usuario'
     form_class = UsuarioForm
     extra_context = {'etiqueta' : 'Actualizar',
                      'boton' : 'Guardar'}
     success_url = reverse_lazy('usuarios:lista')
 
-class UsuarioEliminar(DeleteView):
+class UsuarioEliminar(PermissionRequiredMixin,DeleteView):
     model = Usuario
+    permission_required = 'usuarios.delete_usuario'
     success_url = reverse_lazy('usuarios:lista')
 
-class UsuarioDetalle(DetailView):
+class UsuarioDetalle(PermissionRequiredMixin,DetailView):
     model = Usuario
+    permission_required = 'usuarios.view_usuario'
 
 class LoginUsuario(LoginView):
     template_name = 'login.html'
@@ -115,3 +139,14 @@ class SignUpUsuario(CreateView):
     template_name = 'signup.html'
     form_class = UsuarioForm
     success_url = reverse_lazy('usuarios:login')        
+
+def logout(request):
+    auth.logout(request)
+    return redirect('usuarios:login')
+
+def modificar_usuario_grupo(request,pk):
+    if request.method == "POST":
+        usuario = Usuarios.objects.filter(id=pk)
+
+
+    return redirect('usuario:lista')

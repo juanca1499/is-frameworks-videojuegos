@@ -67,6 +67,7 @@
 							<div class="text-center">
 								<button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Ingresar</button>
 							</div>
+							<input type="hidden" name="next" value="{{next}}"> 
 						</form>
 						
 						<div class="auth-option text-center pt-5">¿No tienes cuenta? ¡Regístrate! <a class="text-link" href="{% url 'usuarios:signup' %}" >aquí</a>.</div>

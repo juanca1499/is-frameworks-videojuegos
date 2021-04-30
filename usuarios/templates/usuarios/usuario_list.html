@@ -1,6 +1,10 @@
 {% extends 'dashboard.html' %}
 {% load static %}
 
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/extra.css' %}">
+{% endblock %}
+
 {% block titulo %}
     Lista de Usuarios
 {% endblock titulo %}
@@ -39,7 +43,9 @@
             <a href="{% url 'usuarios:ver' usuario.id %}" class="btn btn-outline-info">Ver</a>
             <a href="{% url 'usuarios:editar' usuario.id %}" class="btn btn-outline-warning">Editar</a>
             <button onclick="muestraModal('{% url 'usuarios:eliminar' usuario.id %}','el Usuario {{usuario.username}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">Eliminar</button>
-            <a href="">Activar</a>
+            <a href="#" class="btn btn-outline-success">Activar</a>
+            <button id="usuarioGrupo" onclick="muestraModalGrupos('{% url 'usuarios:modificar_usuario_grupo' usuario.id %}',{{usuario}})" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#gruposModal">Grupos</button>
+            <!--<a href="{% url 'usuarios:modificar_usuario_grupo' usuario.id %}" class="btn btn-outline-secondary">Editar</a> -->
           </td>
         </tr>
           {% endfor %}
@@ -82,7 +88,7 @@
   </ul>
 </nav>
 
-<!-- Modal -->
+<!-- Modal Eliminar -->
 <div class="modal fade" id="eliminarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -102,7 +108,49 @@
     </div>
   </div>
 </div>
-{% endblock contenido %} 
+
+<!-- Modal Grupos -->
+<div class="modal fade" id="gruposModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Asignación de Grupos</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalCuerpoGrupos">
+        <table class="table">
+          <thead>
+            <th>Nombre del grupo</th>
+            <th>Habilitado</th>
+          </thead>
+          <tbody>
+            <div id="permisosAsignados">
+              {% for grupo in lista_grupos %}
+                <tr>
+                  <td>{{grupo}}</td>
+                  <td>
+                    <label class="switch" >
+                      <input type="checkbox" name='{{grupo}}'>
+                      <span class="slider round"></span>
+                    </label>                  
+                  </td>
+                </tr>  
+              {% endfor %}
+            </div>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Descartar cambios</button>
+          <form id="formGrupos" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-success">Guardar cambios</button>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock contenido %}
 
 {% block js %}
   <script src="{% static 'js/funciones.js' %}"></script>

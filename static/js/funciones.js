@@ -28,3 +28,31 @@ $('#id_estado').on('change', function () {
         }
     });
 });
+
+$('#usuarioGrupo').on('click', function () { 
+    $.ajax({
+        type: "get",
+        url: `usuario-grupos/`,
+        success: function (response) {
+            var html = "";
+            if(response[0].hasOwnProperty('error')) {
+                console.log('Error al obtener los grupos')
+            }
+            else {
+                $.each(response, function(llave,valor) {
+                    html+=`<option value="${valor.id}">${valor.nombre}</option>`;
+                });
+            }
+            $("#permisosAsignados").html(html)
+        },
+        error: function(param) {
+            console.log('Error en la petición');
+        }
+    });
+});
+
+function muestraModalGrupos(url,usuario){
+    var user = usuario;
+    console.log(user);
+    document.getElementById('formGrupos').action = url;
+}

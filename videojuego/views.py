@@ -162,10 +162,14 @@ class Grafica(TemplateView):
 class VistaVideoJuegosPDF(ListView):
     model = VideoJuego
     template_name = 'videojuego/videojuegos_lista_pdf.html'
-    suma = 0
-    for videojuego in VideoJuego.objects.all():
-        suma += videojuego.precio
-    extra_context = {'suma' : suma}
+
+    def get(self, request, *args, **kwargs):
+        suma = 0
+        for videojuego in VideoJuego.objects.all():
+            suma += videojuego.precio
+        self.extra_context = {'suma' : suma}
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
 
 class ListaVideoJuegosPDF(WeasyTemplateResponseMixin, VistaVideoJuegosPDF):
     # output of MyModelView rendered as PDF with hardcoded CSS
