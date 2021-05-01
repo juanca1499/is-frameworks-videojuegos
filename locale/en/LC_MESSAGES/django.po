@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-30 22:01+0000\n"
+"POT-Creation-Date: 2021-05-01 20:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,43 +18,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: usuarios/templates/confirmar_cuenta.html:6
+#: usuarios/templates/confirmar_cuenta.html:8
 msgid "Confirmar cuenta"
-msgstr "Confirm Account"
+msgstr "Verify Account"
 
-#: usuarios/templates/confirmar_cuenta.html:10
+#: usuarios/templates/confirmar_cuenta.html:12
 msgid "Validar cuenta"
 msgstr "Validate account"
 
-#: usuarios/templates/confirmar_cuenta.html:19
+#: usuarios/templates/confirmar_cuenta.html:20
 msgid "Activar cuenta"
 msgstr "Activate account"
 
 #: usuarios/templates/login.html:7
-#, fuzzy
-#| msgid "Lista de Videojuegos"
-msgid "Iniciar sesión Videojuegos"
-msgstr "List of Videogames"
+msgid "Iniciar sesión"
+msgstr "Login"
 
 #: usuarios/templates/login.html:24
-#, fuzzy
-#| msgid "Página no encontrada"
 msgid "Usuario no encontrado"
-msgstr "Page not found"
+msgstr "User not found"
 
 #: usuarios/templates/login.html:41
-#, fuzzy
-#| msgid "Activar cuenta en el Sistema de Videojuegos"
 msgid "Inicio de sesión Sistema de Videojuegos"
-msgstr "Activate account on Videogames System"
+msgstr "Videogames System Login"
 
 #: usuarios/templates/login.html:57
-msgid "Recordar"
-msgstr "Remember"
+msgid "Recordarme"
+msgstr "Remember me"
 
 #: usuarios/templates/login.html:63
 msgid "¿Olvidaste tu contraseña?"
-msgstr "Do you forgot your password?"
+msgstr "Did you forget your password?"
 
 #: usuarios/templates/login.html:69
 msgid "Ingresar"
@@ -62,27 +56,23 @@ msgstr "Login"
 
 #: usuarios/templates/login.html:74
 msgid "¿No tienes cuenta? ¡Regístrate!"
-msgstr "You do not have account? Sign up!"
+msgstr "Don't have an account yet? Sign up!"
 
 #: usuarios/templates/login.html:74
 msgid "aquí"
 msgstr "here"
 
-#: usuarios/templates/signup.html:7
-#, fuzzy
-#| msgid "Lista de Videojuegos"
-msgid "Registrarse Videojuegos"
-msgstr "List of Videogames"
+#: usuarios/templates/signup.html:7 usuarios/templates/signup.html:47
+msgid "Registrarse"
+msgstr "Sign up"
 
 #: usuarios/templates/signup.html:31
-#, fuzzy
-#| msgid "Activar cuenta en el Sistema de Videojuegos"
 msgid "Registro en el Sistema de Videojuegos"
-msgstr "Activate account on Videogames System"
+msgstr "Videogames System signup"
 
 #: usuarios/templates/signup.html:41
 msgid "Estoy de acuerdo"
-msgstr "I am agree"
+msgstr "I agree"
 
 #: usuarios/templates/signup.html:41
 msgid "Términos de servicio"
@@ -92,13 +82,13 @@ msgstr "Terms of service"
 msgid "Política de Privacidad"
 msgstr "Privacy Policy"
 
-#: usuarios/templates/signup.html:47
-msgid "Registrarse"
-msgstr "Sign up"
-
 #: usuarios/templates/signup.html:51
 msgid "¿Ya tienes una cuenta?"
 msgstr "Already have an account?"
+
+#: usuarios/templates/signup.html:51
+msgid "Iniciar Sesión"
+msgstr "Login"
 
 #: usuarios/templates/usuarios/usuario_detail.html:10
 #: usuarios/templates/usuarios/usuario_list.html:19
@@ -108,7 +98,7 @@ msgstr "Username"
 #: usuarios/templates/usuarios/usuario_detail.html:11
 #: usuarios/templates/usuarios/usuario_list.html:20
 msgid "Nombre"
-msgstr "Name"
+msgstr "First Name"
 
 #: usuarios/templates/usuarios/usuario_detail.html:12
 msgid "Apellidos"
@@ -117,11 +107,12 @@ msgstr "Last name"
 #: usuarios/templates/usuarios/usuario_detail.html:13
 #: usuarios/templates/usuarios/usuario_list.html:22
 msgid "Estado"
-msgstr "State"
+msgstr "State or Province"
 
 #: usuarios/templates/usuarios/usuario_detail.html:14
+#: usuarios/templates/usuarios/usuario_list.html:23
 msgid "Municipio"
-msgstr "Municipalities"
+msgstr "Municipality"
 
 #: usuarios/templates/usuarios/usuario_detail.html:15
 msgid "Fecha de registro"
@@ -129,7 +120,7 @@ msgstr "Date of signup"
 
 #: usuarios/templates/usuarios/usuario_detail.html:17
 msgid "Último Inicio de Sesión"
-msgstr "Last login access"
+msgstr "Last login"
 
 #: usuarios/templates/usuarios/usuario_detail.html:20
 msgid "Foto de perfil"
@@ -142,19 +133,8 @@ msgstr "Return"
 
 #: usuarios/templates/usuarios/usuario_form.html:6
 #: usuarios/templates/usuarios/usuario_form.html:10
-#, python-format
-msgid " %(etiqueta)s "
-msgstr ""
-
-#: usuarios/templates/usuarios/usuario_form.html:6
-#: usuarios/templates/usuarios/usuario_form.html:10
 msgid "Usuario"
 msgstr "User"
-
-#: usuarios/templates/usuarios/usuario_form.html:16
-#, python-format
-msgid " %(boton)s "
-msgstr ""
 
 #: usuarios/templates/usuarios/usuario_list.html:10
 #: usuarios/templates/usuarios/usuario_list.html:14
@@ -176,6 +156,7 @@ msgid "Acciones"
 msgstr "Actions"
 
 #: usuarios/templates/usuarios/usuario_list.html:44
+#: videojuego/templates/videojuego/videojuego_list.html:33
 msgid "Ver"
 msgstr "View"
 
@@ -199,72 +180,118 @@ msgstr "Activate"
 msgid "Grupos"
 msgstr "Groups"
 
-#: usuarios/templates/usuarios/usuario_list.html:62
-#: usuarios/templates/usuarios/usuario_list.html:66
+#: usuarios/templates/usuarios/usuario_list.html:61
+#: usuarios/templates/usuarios/usuario_list.html:65
 #: videojuego/templates/lista_categorias.html:36
+#: videojuego/templates/lista_categorias.html:40
 #: videojuego/templates/videojuego/videojuego_list.html:49
 #: videojuego/templates/videojuego/videojuego_list.html:53
 msgid "Previo"
 msgstr "Previous"
 
-#: usuarios/templates/usuarios/usuario_list.html:82
-#: usuarios/templates/usuarios/usuario_list.html:86
+#: usuarios/templates/usuarios/usuario_list.html:81
+#: usuarios/templates/usuarios/usuario_list.html:85
 #: videojuego/templates/lista_categorias.html:56
+#: videojuego/templates/lista_categorias.html:60
 #: videojuego/templates/videojuego/videojuego_list.html:69
 #: videojuego/templates/videojuego/videojuego_list.html:73
 msgid "Siguiente"
 msgstr "Next"
 
-#: usuarios/templates/usuarios/usuario_list.html:97
+#: usuarios/templates/usuarios/usuario_list.html:96
 #: videojuego/templates/lista_categorias.html:71
 #: videojuego/templates/videojuego/videojuego_list.html:84
 msgid "Eliminando Registro"
 msgstr "Deleting Record"
 
-#: usuarios/templates/usuarios/usuario_list.html:103
+#: usuarios/templates/usuarios/usuario_list.html:102
 #: videojuego/templates/videojuego/videojuego_list.html:90
 msgid "No"
 msgstr "No"
 
-#: usuarios/templates/usuarios/usuario_list.html:106
+#: usuarios/templates/usuarios/usuario_list.html:105
 #: videojuego/templates/lista_categorias.html:80
 #: videojuego/templates/videojuego/videojuego_list.html:93
 msgid "Sí, estoy seguro"
 msgstr "Yes, I'm sure"
 
-#: usuarios/templates/usuarios/usuario_list.html:118
+#: usuarios/templates/usuarios/usuario_list.html:117
 msgid "Asignación de Grupos"
 msgstr "Group assignment"
 
-#: usuarios/templates/usuarios/usuario_list.html:124
-#, fuzzy
-#| msgid "Nombre Categoría"
+#: usuarios/templates/usuarios/usuario_list.html:123
 msgid "Nombre del grupo"
-msgstr "Category Name"
+msgstr "Group Name"
 
-#: usuarios/templates/usuarios/usuario_list.html:125
+#: usuarios/templates/usuarios/usuario_list.html:124
 msgid "Habilitado"
 msgstr "Enabled"
 
-#: usuarios/templates/usuarios/usuario_list.html:145
-#, fuzzy
-#| msgid "Descargar"
+#: usuarios/templates/usuarios/usuario_list.html:144
 msgid "Descartar cambios"
-msgstr "Download"
+msgstr "Discard changes"
 
-#: usuarios/templates/usuarios/usuario_list.html:148
-#, fuzzy
-#| msgid "Guardar"
+#: usuarios/templates/usuarios/usuario_list.html:147
 msgid "Guardar cambios"
-msgstr "Save"
+msgstr "Save Changes"
+
+#: usuarios/urls.py:12 videojuego/urls_categoria.py:13
+#: videojuego/urls_videojuego.py:14
+msgid "lista/"
+msgstr "list/"
+
+#: usuarios/urls.py:13 videojuego/urls_categoria.py:12
+#: videojuego/urls_videojuego.py:16
+msgid "nuevo/"
+msgstr "new/"
+
+#: usuarios/urls.py:14 videojuego/urls_videojuego.py:17
+msgid "editar/<int:pk>"
+msgstr "edit/<int:pk>"
+
+#: usuarios/urls.py:15 videojuego/urls_videojuego.py:19
+msgid "eliminar/<int:pk>"
+msgstr "delete/<int:pk>"
+
+#: usuarios/urls.py:16 videojuego/urls_videojuego.py:20
+msgid "ver/<int:pk>"
+msgstr "view/<int:pk>"
+
+#: usuarios/urls.py:17
+msgid "municipios/"
+msgstr "municipalities/"
+
+#: usuarios/urls.py:18
+msgid "login/"
+msgstr "login/"
+
+#: usuarios/urls.py:19
+msgid "logout/"
+msgstr "logout/"
+
+#: usuarios/urls.py:20
+msgid "signup/"
+msgstr "signup/"
+
+#: usuarios/urls.py:21
+msgid "activar/<slug:uid64>/<slug:token>"
+msgstr "activate/<slug:uid64>/<slug:token>"
+
+#: usuarios/urls.py:22
+msgid "usuario-grupos/<int:id>"
+msgstr "user-groups/<int:id>"
+
+#: usuarios/urls.py:23
+msgid "modificar-grupos/<int:id>"
+msgstr "modify-groups/<int:id>"
 
 #: usuarios/views.py:26 videojuego/views.py:127
 msgid "Nuevo"
 msgstr "New"
 
-#: usuarios/views.py:27 videojuego/templates/dashboard.html:218
-#: videojuego/templates/dashboard.html:242
-#: videojuego/templates/dashboard.html:265
+#: usuarios/views.py:27 videojuego/templates/dashboard.html:234
+#: videojuego/templates/dashboard.html:258
+#: videojuego/templates/dashboard.html:281
 #: videojuego/templates/nuevo_categoria.html:15 videojuego/views.py:128
 msgid "Agregar"
 msgstr "Add"
@@ -279,7 +306,7 @@ msgstr "Your account has been successfully activated!"
 
 #: usuarios/views.py:75
 msgid "Token inválido, contacta al administrador"
-msgstr "Invalid Token, please contact with administrator"
+msgstr "Invalid Token, please contact the administrator"
 
 #: usuarios/views.py:83 usuarios/views.py:96
 msgid "Petición incorrecta"
@@ -289,26 +316,26 @@ msgstr "Wrong request"
 msgid "No se encontraron municipios con ese estado"
 msgstr "No municipalities were found for that state"
 
-#: usuarios/views.py:101
+#: usuarios/views.py:102
 msgid "El usuario no tiene grupos asignados"
-msgstr "User has no assigned groups"
+msgstr "User is not assigned to any groups"
 
-#: usuarios/views.py:121 videojuego/views.py:136
+#: usuarios/views.py:122 videojuego/views.py:136
 msgid "Actualizar"
 msgstr "Update"
 
-#: usuarios/views.py:122 videojuego/templates/editar_categoria.html:13
+#: usuarios/views.py:123 videojuego/templates/editar_categoria.html:13
 #: videojuego/views.py:137
 msgid "Guardar"
 msgstr "Save"
 
-#: videojuego/templates/403.html:6
+#: videojuego/templates/403.html:5
 msgid "Permiso denegado"
 msgstr "Permission denied"
 
-#: videojuego/templates/403.html:12
+#: videojuego/templates/403.html:11
 msgid "No tienes permisos para el recurso solicitado."
-msgstr "You do not have permissions for the requested resource"
+msgstr "You do not have permission to access the requested resource"
 
 #: videojuego/templates/404.html:5
 msgid "Página no encontrada"
@@ -318,67 +345,115 @@ msgstr "Page not found"
 msgid "Menu"
 msgstr "Menu"
 
+#: videojuego/templates/dashboard.html:48
+msgid "Buscar"
+msgstr "Search"
+
 #: videojuego/templates/dashboard.html:66
+msgid "Seleccionar idioma"
+msgstr "Select language"
+
+#: videojuego/templates/dashboard.html:82
 msgid "Notificaciones"
 msgstr "Notifications"
 
-#: videojuego/templates/dashboard.html:153
+#: videojuego/templates/dashboard.html:91
+msgid "Amy compartio un archivo contigo."
+msgstr "Amy shared a file with you"
+
+#: videojuego/templates/dashboard.html:92
+msgid "Hace 2 horas"
+msgstr "2 hours ago"
+
+#: videojuego/templates/dashboard.html:110
+msgid "Tienes un nuevo recibo"
+msgstr "You have a new invoice"
+
+#: videojuego/templates/dashboard.html:111
+msgid "Hace 1 día"
+msgstr "1 day ago"
+
+#: videojuego/templates/dashboard.html:128
+msgid "Tu reporte está listo"
+msgstr "You report is ready"
+
+#: videojuego/templates/dashboard.html:129
+msgid "Hace 3 días"
+msgstr "3 days ago"
+
+#: videojuego/templates/dashboard.html:141
+msgid "James te envió un mensaje."
+msgstr "James sent you a message"
+
+#: videojuego/templates/dashboard.html:142
+msgid "Hace 7 días"
+msgstr "7 days ago"
+
+#: videojuego/templates/dashboard.html:151
+msgid "Ver todo"
+msgstr "View all"
+
+#: videojuego/templates/dashboard.html:169
 msgid "Cuenta"
 msgstr "Account"
 
-#: videojuego/templates/dashboard.html:154
-#, fuzzy
-#| msgid "Notificaciones"
+#: videojuego/templates/dashboard.html:170
 msgid "Configuraciones"
-msgstr "Notifications"
+msgstr "Settings"
 
-#: videojuego/templates/dashboard.html:156
+#: videojuego/templates/dashboard.html:172
 msgid "Cerrar Sesión"
 msgstr "Log out"
 
-#: videojuego/templates/dashboard.html:184
+#: videojuego/templates/dashboard.html:185
+msgid "PORTAL"
+msgstr "PORTAL"
+
+#: videojuego/templates/dashboard.html:200
 msgid "General"
 msgstr "Overview"
 
-#: videojuego/templates/dashboard.html:196
+#: videojuego/templates/dashboard.html:212
 msgid "Documentos"
 msgstr "Documents"
 
-#: videojuego/templates/dashboard.html:208
+#: videojuego/templates/dashboard.html:224
 msgid "Usuarios"
 msgstr "Users"
 
-#: videojuego/templates/dashboard.html:217
-#: videojuego/templates/dashboard.html:241
-#: videojuego/templates/dashboard.html:264
+#: videojuego/templates/dashboard.html:233
+#: videojuego/templates/dashboard.html:257
+#: videojuego/templates/dashboard.html:280
 msgid "Lista"
 msgstr "List"
 
-#: videojuego/templates/dashboard.html:232
+#: videojuego/templates/dashboard.html:248
 msgid "Videojuegos"
 msgstr "Videogame"
 
-#: videojuego/templates/dashboard.html:255
+#: videojuego/templates/dashboard.html:271
 msgid "Categorías"
 msgstr "Categories"
 
-#: videojuego/templates/dashboard.html:279
+#: videojuego/templates/dashboard.html:295
 msgid "Gráficas"
 msgstr "Charts"
 
-#: videojuego/templates/dashboard.html:292
+#: videojuego/templates/dashboard.html:308
 msgid "Ayuda"
 msgstr "Help"
 
-#: videojuego/templates/dashboard.html:309
+#: videojuego/templates/dashboard.html:325
 msgid "Ajustes"
 msgstr "Settings"
 
-#: videojuego/templates/dashboard.html:321
+#: videojuego/templates/dashboard.html:337
+#: videojuego/templates/videojuego/grafica.html:8
+#: videojuego/templates/videojuego/grafica.html:28
 msgid "Descargar"
 msgstr "Download"
 
-#: videojuego/templates/dashboard.html:333
+#: videojuego/templates/dashboard.html:349
 msgid "Licencia"
 msgstr "License"
 
@@ -393,7 +468,7 @@ msgstr "Edit Category"
 #: videojuego/templates/lista_categorias.html:6
 #: videojuego/templates/lista_categorias.html:10
 msgid "Lista de Categorías"
-msgstr "List Of Categories"
+msgstr "List of Categories"
 
 #: videojuego/templates/lista_categorias.html:15
 msgid "Nombre Categoría"
@@ -403,6 +478,46 @@ msgstr "Category Name"
 #: videojuego/templates/nuevo_categoria.html:9
 msgid "Nueva Categoría"
 msgstr "New Category"
+
+#: videojuego/templates/videojuego/grafica.html:5
+msgid "Gráfica"
+msgstr "Charts"
+
+#: videojuego/templates/videojuego/grafica.html:9
+msgid "Descargar en imágen JPEG"
+msgstr "Donwload in JPEG image"
+
+#: videojuego/templates/videojuego/grafica.html:10
+msgid "Descargar en PDF"
+msgstr "Download as PDF"
+
+#: videojuego/templates/videojuego/grafica.html:11
+msgid "Descargar en imágen PNG"
+msgstr "Download as PNG image"
+
+#: videojuego/templates/videojuego/grafica.html:12
+msgid "Descargar en imagén de Vectores"
+msgstr "Download as Vector image"
+
+#: videojuego/templates/videojuego/grafica.html:13
+msgid "Ver en pantalla completa"
+msgstr "Full screen view"
+
+#: videojuego/templates/videojuego/grafica.html:14
+msgid "Imprimir gráfica"
+msgstr "Print chart"
+
+#: videojuego/templates/videojuego/grafica.html:15
+msgid "Grafica de videojuegos por categoría"
+msgstr "Chart of videogames per category"
+
+#: videojuego/templates/videojuego/grafica.html:16
+msgid "Cuantos videojuegos hay por cada categoría"
+msgstr "Videogames per category"
+
+#: videojuego/templates/videojuego/grafica.html:17
+msgid "Cantidad de videojuegos"
+msgstr "Number of videogames"
 
 #: videojuego/templates/videojuego/videojuego_detail.html:5
 msgid "Detalle del videojuego"
@@ -419,6 +534,7 @@ msgstr "Title"
 #: videojuego/templates/videojuego/videojuego_detalle_pdf.html:14
 #: videojuego/templates/videojuego/videojuego_list.html:19
 #: videojuego/templates/videojuego/videojuegos_lista_pdf.html:20
+#: videojuego/form_videojuego.py:18
 msgid "Categoría"
 msgstr "Category"
 
@@ -440,6 +556,7 @@ msgstr "Price"
 #: videojuego/templates/videojuego/videojuego_detalle_pdf.html:19
 #: videojuego/templates/videojuego/videojuego_list.html:18
 #: videojuego/templates/videojuego/videojuegos_lista_pdf.html:19
+#: videojuego/form_videojuego.py:20
 msgid "Descripción"
 msgstr "Description"
 
@@ -448,8 +565,6 @@ msgid "PDF detalle de Videojuego"
 msgstr "Videogame detail PDF"
 
 #: videojuego/templates/videojuego/videojuego_detalle_pdf.html:12
-#, fuzzy
-#| msgid "Detalle del videojuego"
 msgid "Detalle de Videojuego"
 msgstr "Videogame detail"
 
@@ -465,15 +580,31 @@ msgstr "List of Videogames"
 
 #: videojuego/templates/videojuego/videojuego_list.html:11
 msgid "Convertir Lista a PDF"
-msgstr "Convert List to PDF"
-
-#: videojuego/templates/videojuego/videojuego_list.html:33
-msgid "View"
-msgstr "View"
+msgstr "Export List as a PDF"
 
 #: videojuego/templates/videojuego/videojuegos_lista_pdf.html:36
 msgid "La suma de los precios de los Videojuegos es"
-msgstr "The sum of the prices of the Videogames is"
+msgstr "The total sum of all the videogames prices is"
+
+#: videojuego/urls_categoria.py:14
+msgid "editar/<int:id>"
+msgstr "edit/<int:id>"
+
+#: videojuego/urls_categoria.py:15
+msgid "eliminar/<int:id>"
+msgstr "delete/<int:id>"
+
+#: videojuego/urls_videojuego.py:21
+msgid "grafica/"
+msgstr "chart/"
+
+#: videojuego/urls_videojuego.py:22
+msgid "pdf-lista/"
+msgstr "pdf-list/"
+
+#: videojuego/urls_videojuego.py:23
+msgid "pdf-detalle/<int:pk>"
+msgstr "pdf-detail/<int_pk>"
 
 #: videojuegos/settings.py:136
 msgid "Spanish"
@@ -483,17 +614,58 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#~ msgid "Eliminando Videojuego"
-#~ msgstr "Deleting Videogame"
+#: videojuegos/urls.py:24
+msgid "admin/"
+msgstr "admin/"
 
-#~ msgid "¿Quieres eliminar el videojuego"
-#~ msgstr "Do you want to delete the videogame?"
+#: videojuegos/urls.py:27
+msgid "categorias/"
+msgstr "categories/"
 
-#~ msgid "Mejor no"
-#~ msgstr "No"
+#: videojuegos/urls.py:28
+msgid "videojuegos/"
+msgstr "videogames/"
 
-#~ msgid "Next"
-#~ msgstr "Siguiente"
+#: videojuegos/urls.py:29
+msgid "usuarios/"
+msgstr "users/"
 
-#~ msgid "¿Está seguro que desea eliminar el registro"
-#~ msgstr "Are you sure you want to delete the record?"
+#: usuarios/forms.py:14
+msgid "Crea un nombre de usuario"
+msgstr "Create a username"
+
+#: usuarios/forms.py:16
+msgid "Crea una contraseña"
+msgstr "Create a password"
+
+#: usuarios/forms.py:18
+msgid "Indica tu correo electrónico"
+msgstr "Indicate your email"
+
+#: usuarios/forms.py:20
+msgid "Indica tu nombre"
+msgstr "Indicate your name"
+
+#: usuarios/forms.py:22
+msgid "Indica tus apellidos"
+msgstr "Indicate your last name"
+
+#: usuarios/forms.py:24
+msgid "Indica tu CURP"
+msgstr "Indicate your CURP"
+
+#: videojuego/form_videojuego.py:16
+msgid "Nombre del videojuego"
+msgstr "Videogame name"
+
+#: videojuego/form_videojuego.py:17
+msgid "Año de lanzamiento"
+msgstr "Release year"
+
+#: videojuego/form_videojuego.py:19
+msgid "Precio US"
+msgstr "Price US"
+
+#: videojuego/form_categoria.py:20
+msgid "Nombre de la categoría"
+msgstr "Category name"

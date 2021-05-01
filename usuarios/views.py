@@ -91,11 +91,12 @@ def obtiene_municipios(request):
                      'nombre' : municipio.nombre})
     return JsonResponse(json, safe=False)
 
-def obtiene_usuario_grupos(request):
+def obtiene_usuario_grupos(request,id):
     if request.method != 'GET':
         return JsonResponse({'error':_('Petición incorrecta')}, safe=False, status=403)
     id_usuario = request.GET.get('id')
     grupos = Groups.objects.filter(user_id=id_usuario)
+    print(grupos)
     json = []
     if not grupos:
         json.append({'error' : _('El usuario no tiene grupos asignados')})
@@ -145,9 +146,9 @@ def logout(request):
     auth.logout(request)
     return redirect('usuarios:login')
 
-def modificar_usuario_grupo(request,pk):
-    if request.method == "POST":
-        usuario = Usuarios.objects.filter(id=pk)
+def modificar_usuario_grupo(request,id):
+    
+    usuario = Usuarios.objects.get(id=id)
 
 
     return redirect('usuario:lista')

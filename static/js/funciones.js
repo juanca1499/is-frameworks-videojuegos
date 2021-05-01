@@ -1,7 +1,7 @@
 function muestraModal(url, caption){
     document.getElementById('formEliminar').action = url;
     document.getElementById('modalCuerpo').innerHTML = 
-    `¿Está seguro que desea eliminar ${caption}?`;
+    gettext('Registrarse');
 }
 
 // Aquí usamos JQuery (que es un Framework de JavaScript)
@@ -32,7 +32,7 @@ $('#id_estado').on('change', function () {
 $('#usuarioGrupo').on('click', function () { 
     $.ajax({
         type: "get",
-        url: `usuario-grupos/`,
+        url: `/usuarios/usuario-grupos/`,
         success: function (response) {
             var html = "";
             if(response[0].hasOwnProperty('error')) {
@@ -51,8 +51,6 @@ $('#usuarioGrupo').on('click', function () {
     });
 });
 
-function muestraModalGrupos(url,usuario){
-    var user = usuario;
-    console.log(user);
+function muestraModalGrupos(url){
     document.getElementById('formGrupos').action = url;
 }

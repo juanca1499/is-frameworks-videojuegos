@@ -1,8 +1,20 @@
 {% extends 'dashboard.html' %}
+{% load i18n %}
 
 {% block titulo %}
-    Grafica
+    {% translate "Gráfica" %}
 {% endblock titulo %}
+
+{% translate "Descargar" as descargar %}
+{% translate "Descargar en imágen JPEG" as descargarJPEG %}
+{% translate "Descargar en PDF" as descargarPDF %}
+{% translate "Descargar en imágen PNG" as descargarPNG %}
+{% translate "Descargar en imagén de Vectores" as descargarVectores %}
+{% translate "Ver en pantalla completa" as verPCompleta %}
+{% translate "Imprimir gráfica" as imprimirGrafica %}
+{% translate "Grafica de videojuegos por categoría" as graficaVJuegosCat %}
+{% translate "Cuantos videojuegos hay por cada categoría" as cantidadJuegosCat %}
+{% translate "Cantidad de videojuegos" as cantVideoJuegos %}
 
 {% block contenido %}
     <div id="grafica" style="min-width: 310px;height: 400px;margin: 0 auto"></div>
@@ -13,22 +25,22 @@
     <script>
         Highcharts.chart('grafica',{
             lang: {
-                downloadCSV: "Descargar CSV",
-                downloadJPEG: "Descargar en imágen JPEG",
-                downloadPDF: "Descargar en PDF",
-                downloadPNG: "Descargar en imágen PNG",
-                downloadSVG: "Descargar en imagén de Vectores",
-                viewFullscreen: "Ver en pantalla completa",
-                printChart: "Imprimir gráfica"
+                downloadCSV: '{% translate "Descargar" %} CSV',
+                downloadJPEG: "{{ descargarJPEG }}",
+                downloadPDF: "{{ descargarPDF }}",
+                downloadPNG: "{{ descargarPNG }}",
+                downloadSVG: "{{ descargarVectores }}",
+                viewFullscreen: "{{ verPCompleta }}",
+                printChart: "{{ imprimirGráfica }}"
             },
             chart: {
                 type: 'column'
             },
             title : {
-                text: 'Grafica de videojuegos por categoría'
+                text: "{{graficaVJuegosCat}}"
             },
             subtitle: {
-                text: 'Cuantos videojuegos hay por cada categoría'
+                text: "{{cantidadJuegosCat}}"
             },
             xAxis: {
                 categories: ['Categorías']
@@ -36,7 +48,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Cantidad de videojuegos'
+                    text: "{{cantVideoJuegos}}"
                 }
             },
             plotOptions: {

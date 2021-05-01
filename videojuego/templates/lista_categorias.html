@@ -37,7 +37,7 @@
       </li>
     {% else %}
       <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
+        <a class="page-link" href="#" tabindex="-1">{% translate "Previo" %}</a>
       </li>
     {% endif %}
     {% for num_page in page_obj.paginator.page_range  %}
@@ -57,7 +57,7 @@
       </li>
     {% else %}
     <li class="page-item disabled">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="#">{% translate "Siguiente" %}</a>
     </li>
     {% endif %}
   </ul>

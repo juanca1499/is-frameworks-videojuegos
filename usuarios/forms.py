@@ -1,6 +1,7 @@
 from django import forms 
 from .models import Usuario
 from django.contrib.auth.forms import UserCreationForm
+from django.utils.translation import gettext as _
 
 class UsuarioForm(forms.ModelForm):
     # password = forms.CharField(widget=forms.PasswordInput)
@@ -10,17 +11,17 @@ class UsuarioForm(forms.ModelForm):
 
         widgets = {
             'username' : forms.TextInput(attrs={'class' : 'form-control',
-                                                'placeholder' : 'Crea un nombre de usuario'}),
+                                                'placeholder' : _('Crea un nombre de usuario')}),
             'password': forms.PasswordInput(attrs={'class': 'form-control',
-                                                   'placeholder' : 'Crea una contraseña'}), 
+                                                   'placeholder' : _('Crea una contraseña')}), 
             'email' : forms.EmailInput(attrs={'class' : 'form-control',
-                                             'placeholder' : 'Indica tu correo electrónico'}), 
+                                             'placeholder' : _('Indica tu correo electrónico')}), 
             'first_name' : forms.TextInput(attrs={'class' : 'form-control',
-                                                    'placeholder' : 'Indica tu nombre'}),
+                                                    'placeholder' : _('Indica tu nombre')}),
             'last_name' : forms.TextInput(attrs={'class' : 'form-control',
-                                                 'placeholder' : 'Indica tus apellidos'}),  
+                                                 'placeholder' : _('Indica tus apellidos')}),  
             'curp' : forms.TextInput(attrs={'class' : 'form-control',
-                                            'placeholder' : 'Indica tu CURP'}),                                                                                              
+                                            'placeholder' : _('Indica tu CURP')}),                                                                                              
             'estado' : forms.Select(attrs={'class':'form-control'}),
             'municipio' : forms.Select(attrs={'class':'form-control'}),
         }

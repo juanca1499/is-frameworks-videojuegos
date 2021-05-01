@@ -45,8 +45,7 @@
             <a href="{% url 'usuarios:editar' usuario.id %}" class="btn btn-outline-warning">{% translate "Editar" %}</a>
             <button onclick="muestraModal('{% url 'usuarios:eliminar' usuario.id %}','el Usuario {{usuario.username}}')" type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminarModal">{% translate "Eliminar" %}</button>
             <a href="#" class="btn btn-outline-success">{% translate "Activar" %}</a>
-            <button id="usuarioGrupo" onclick="muestraModalGrupos('{% url 'usuarios:modificar_usuario_grupo' usuario.id %}',{{usuario}})" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#gruposModal">{% translate "Grupos" %}</button>
-            <!--<a href="{% url 'usuarios:modificar_usuario_grupo' usuario.id %}" class="btn btn-outline-secondary">Editar</a> -->
+            <button id="usuarioGrupo" onclick="muestraModalGrupos('{% url 'usuarios:modificar_usuario_grupo' usuario.id %}')" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#gruposModal">{% translate "Grupos" %}</button>
           </td>
         </tr>
           {% endfor %}
@@ -154,5 +153,8 @@
 {% endblock contenido %}
 
 {% block js %}
+  <script src="{% url 'videojuego:javascript_catalog' %}">
+    alert(gettext('Registrarse'))
+  </script>
   <script src="{% static 'js/funciones.js' %}"></script>
 {% endblock js %}

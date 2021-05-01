@@ -1,5 +1,6 @@
 from django import forms
 from .models import Categoria
+from django.utils.translation import gettext as _
 
 class CategoriaForm(forms.ModelForm):
     class Meta:
@@ -8,7 +9,7 @@ class CategoriaForm(forms.ModelForm):
     
         widgets = {
             'nombre' : forms.TextInput(attrs={'class' : 'form-control',
-                                              'placeholder' : 'Nombre de la categoría'})
+                                              'placeholder' : _('Nombre de la categoría')})
         }
     
 
