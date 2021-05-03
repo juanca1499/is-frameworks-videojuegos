@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-03 02:12+0000\n"
+"POT-Creation-Date: 2021-05-03 18:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,7 @@ msgstr ""
 msgid "Crea un nombre de usuario"
 msgstr "Create a username"
 
-#: usuarios/forms.py:16
-#: usuarios/templates/signup.html:50
+#: usuarios/forms.py:16 usuarios/templates/signup.html:50
 msgid "Crea una contraseña"
 msgstr "Create a password"
 
@@ -64,7 +63,7 @@ msgstr "Profile picture"
 msgid "Usuario"
 msgstr "User"
 
-#: usuarios/models.py:14 videojuego/templates/dashboard.html:225
+#: usuarios/models.py:14 videojuego/templates/dashboard.html:207
 msgid "Usuarios"
 msgstr "Users"
 
@@ -100,6 +99,16 @@ msgstr "User not found"
 msgid "Inicio de sesión Sistema de Videojuegos"
 msgstr "Videogames System Login"
 
+#: usuarios/templates/login.html:47 usuarios/templates/signup.html:42
+#: usuarios/templates/usuarios/usuario_detail.html:10
+#: usuarios/templates/usuarios/usuario_list.html:19
+msgid "Nombre de usuario"
+msgstr "Username"
+
+#: usuarios/templates/login.html:51
+msgid "Contraseña"
+msgstr "Password"
+
 #: usuarios/templates/login.html:57
 msgid "Recordarme"
 msgstr "Remember me"
@@ -121,12 +130,11 @@ msgid "aquí"
 msgstr "here"
 
 #: usuarios/templates/login.html:91 usuarios/templates/signup.html:83
-#: videojuego/templates/dashboard.html:65
+#: videojuego/templates/dashboard.html:364
 msgid "Seleccionar idioma"
 msgstr "Select language"
 
-#: usuarios/templates/signup.html:7 
-#: usuarios/templates/signup.html:61
+#: usuarios/templates/signup.html:7 usuarios/templates/signup.html:61
 msgid "Registrarse"
 msgstr "Sign up"
 
@@ -139,12 +147,6 @@ msgstr "Videogames System Signup"
 #: usuarios/templates/usuarios/usuario_list.html:20
 msgid "Nombre"
 msgstr "First Name"
-
-#: usuarios/templates/signup.html:42
-#: usuarios/templates/usuarios/usuario_detail.html:10
-#: usuarios/templates/usuarios/usuario_list.html:19
-msgid "Nombre de usuario"
-msgstr "Username"
 
 #: usuarios/templates/signup.html:46
 msgid "Correo electronico"
@@ -341,9 +343,9 @@ msgstr "modify-groups/<int:id>"
 msgid "Nuevo"
 msgstr "New"
 
-#: usuarios/views.py:28 videojuego/templates/dashboard.html:235
-#: videojuego/templates/dashboard.html:259
-#: videojuego/templates/dashboard.html:282
+#: usuarios/views.py:28 videojuego/templates/dashboard.html:217
+#: videojuego/templates/dashboard.html:241
+#: videojuego/templates/dashboard.html:264
 #: videojuego/templates/nuevo_categoria.html:15 videojuego/views.py:131
 msgid "Agregar"
 msgstr "Add"
@@ -390,7 +392,7 @@ msgid "Año de lanzamiento"
 msgstr "Release year"
 
 #: videojuego/form_videojuego.py:18 videojuego/models.py:7
-#: videojuego/models.py:26
+#: videojuego/models.py:20 videojuego/models.py:26
 #: videojuego/templates/videojuego/videojuego_detail.html:10
 #: videojuego/templates/videojuego/videojuego_detalle_pdf.html:14
 #: videojuego/templates/videojuego/videojuego_list.html:19
@@ -426,17 +428,25 @@ msgstr "Title"
 msgid "Año"
 msgstr "Year"
 
+#: videojuego/models.py:8
+#: videojuego/templates/videojuego/videojuego_detail.html:12
+#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:16
+#: videojuego/templates/videojuego/videojuego_list.html:17
+#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:18
+msgid "Precio"
+msgstr "Price"
+
 #: videojuego/models.py:16
 #: videojuego/templates/videojuego/videojuego_form.html:5
 #: videojuego/templates/videojuego/videojuego_form.html:9
 msgid "Videojuego"
 msgstr "Videogame"
 
-#: videojuego/models.py:17 videojuego/templates/dashboard.html:249
+#: videojuego/models.py:17 videojuego/templates/dashboard.html:231
 msgid "Videojuegos"
 msgstr "Videogame"
 
-#: videojuego/models.py:27 videojuego/templates/dashboard.html:272
+#: videojuego/models.py:27 videojuego/templates/dashboard.html:254
 msgid "Categorías"
 msgstr "Categories"
 
@@ -460,94 +470,94 @@ msgstr "Menu"
 msgid "Buscar"
 msgstr "Search"
 
-#: videojuego/templates/dashboard.html:83
+#: videojuego/templates/dashboard.html:65
 msgid "Notificaciones"
 msgstr "Notifications"
 
-#: videojuego/templates/dashboard.html:92
+#: videojuego/templates/dashboard.html:74
 msgid "Amy compartio un archivo contigo."
 msgstr "Amy shared a file with you"
 
-#: videojuego/templates/dashboard.html:93
+#: videojuego/templates/dashboard.html:75
 msgid "Hace 2 horas"
 msgstr "2 hours ago"
 
-#: videojuego/templates/dashboard.html:111
+#: videojuego/templates/dashboard.html:93
 msgid "Tienes un nuevo recibo"
 msgstr "You have a new invoice"
 
-#: videojuego/templates/dashboard.html:112
+#: videojuego/templates/dashboard.html:94
 msgid "Hace 1 día"
 msgstr "1 day ago"
 
-#: videojuego/templates/dashboard.html:129
+#: videojuego/templates/dashboard.html:111
 msgid "Tu reporte está listo"
 msgstr "You report is ready"
 
-#: videojuego/templates/dashboard.html:130
+#: videojuego/templates/dashboard.html:112
 msgid "Hace 3 días"
 msgstr "3 days ago"
 
-#: videojuego/templates/dashboard.html:142
+#: videojuego/templates/dashboard.html:124
 msgid "James te envió un mensaje."
 msgstr "James sent you a message"
 
-#: videojuego/templates/dashboard.html:143
+#: videojuego/templates/dashboard.html:125
 msgid "Hace 7 días"
 msgstr "7 days ago"
 
-#: videojuego/templates/dashboard.html:152
+#: videojuego/templates/dashboard.html:134
 msgid "Ver todo"
 msgstr "View all"
 
-#: videojuego/templates/dashboard.html:170
+#: videojuego/templates/dashboard.html:152
 msgid "Cuenta"
 msgstr "Account"
 
-#: videojuego/templates/dashboard.html:171
+#: videojuego/templates/dashboard.html:153
 msgid "Configuraciones"
 msgstr "Settings"
 
-#: videojuego/templates/dashboard.html:173
+#: videojuego/templates/dashboard.html:155
 msgid "Cerrar Sesión"
 msgstr "Log out"
 
-#: videojuego/templates/dashboard.html:186
+#: videojuego/templates/dashboard.html:168
 msgid "PORTAL"
 msgstr "PORTAL"
 
-#: videojuego/templates/dashboard.html:201
+#: videojuego/templates/dashboard.html:183
 msgid "General"
 msgstr "Overview"
 
-#: videojuego/templates/dashboard.html:213
+#: videojuego/templates/dashboard.html:195
 msgid "Documentos"
 msgstr "Documents"
 
-#: videojuego/templates/dashboard.html:234
-#: videojuego/templates/dashboard.html:258
-#: videojuego/templates/dashboard.html:281
+#: videojuego/templates/dashboard.html:216
+#: videojuego/templates/dashboard.html:240
+#: videojuego/templates/dashboard.html:263
 msgid "Lista"
 msgstr "List"
 
-#: videojuego/templates/dashboard.html:296
+#: videojuego/templates/dashboard.html:278
 msgid "Gráficas"
 msgstr "Charts"
 
-#: videojuego/templates/dashboard.html:309
+#: videojuego/templates/dashboard.html:291
 msgid "Ayuda"
 msgstr "Help"
 
-#: videojuego/templates/dashboard.html:326
+#: videojuego/templates/dashboard.html:308
 msgid "Ajustes"
 msgstr "Settings"
 
-#: videojuego/templates/dashboard.html:338
+#: videojuego/templates/dashboard.html:320
 #: videojuego/templates/videojuego/grafica.html:17
 msgid "Descargar"
 msgstr "Download"
 
-#: videojuego/templates/dashboard.html:350
+#: videojuego/templates/dashboard.html:332
 msgid "Licencia"
 msgstr "License"
 
@@ -616,13 +626,6 @@ msgstr "Number of videogames"
 #: videojuego/templates/videojuego/videojuego_detail.html:5
 msgid "Detalle del videojuego"
 msgstr "Videogame detail"
-
-#: videojuego/templates/videojuego/videojuego_detail.html:12
-#: videojuego/templates/videojuego/videojuego_detalle_pdf.html:16
-#: videojuego/templates/videojuego/videojuego_list.html:17
-#: videojuego/templates/videojuego/videojuegos_lista_pdf.html:18
-msgid "Precio"
-msgstr "Price"
 
 #: videojuego/templates/videojuego/videojuego_detalle_pdf.html:9
 msgid "PDF detalle de Videojuego"

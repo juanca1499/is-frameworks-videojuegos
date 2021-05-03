@@ -5,7 +5,7 @@ class VideoJuego(models.Model):
     titulo = models.CharField(_('Título'), max_length=50, unique=True)
     anio = models.IntegerField(_('Año'))
     categoria = models.ForeignKey("videojuego.Categoria",verbose_name=_('Categoría'),on_delete=models.CASCADE)
-    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    precio = models.DecimalField(_('Precio'),max_digits=5, decimal_places=2)
     descripcion = models.CharField(_('Descripción'),max_length=250,
     null=True, blank=True)
 
@@ -17,7 +17,7 @@ class VideoJuego(models.Model):
         verbose_name_plural = _('Videojuegos')
 
 class Categoria(models.Model):
-    nombre = models.CharField(max_length=50)
+    nombre = models.CharField(_('Categoría'),max_length=50)
 
     def __str__(self):
         return self.nombre

@@ -49,22 +49,6 @@
 							<button type="submit" class="btn search-btn btn-primary" value="Search"><i class="fas fa-search"></i></button> 
 				        </form>
 		            </div><!--//app-search-box-->
-					<div class="col">
-						<form class="col" action="{% url 'set_language' %}" method="post">
-							{% csrf_token %}
-							<input type="hidden" name="text" value="{{redirect_to}}">
-							<select name="language" id="">
-								{% get_available_languages as LANGUAGES %}
-								{% get_language_info_list for LANGUAGES as languages %}
-								{% for language in languages %}
-									<option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-										{{language.name_local}} ({{language.code}})
-									</option>
-								{% endfor %}
-							</select>
-							<input type="submit" class="btn app-btn-primary" value="{% translate "Seleccionar idioma" %}">
-						</form>
-					</div>
 		            <div class="app-utilities col-auto">
 			            <div class="app-utility-item app-notifications-dropdown dropdown">    
 				            <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false" title="Notifications">
@@ -357,15 +341,30 @@
     </header><!--//app-header-->
     
     <div class="app-wrapper">
-	    
 	    <div class="app-content pt-3 p-md-3 p-lg-4">
 		    <div class="container-xl">
                 {% block contenido %}
 
                 {% endblock contenido %}
 		    </div><!--//container-fluid-->
+			<div class="d-flex justify-content-center">
+				<form action="{% url 'set_language' %}" method="POST">
+					{% csrf_token %}
+					<input type="hidden" name="text" value="{{redirect_to}}">
+					<select class="form-select" name="language" id="">
+						{% get_available_languages as LANGUAGES %}
+						{% get_language_info_list for LANGUAGES as languages %}
+						{% for language in languages %}
+							<option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
+								{{language.name_local}} ({{language.code}})
+							</option>
+						{% endfor %}
+					</select>
+					<br>
+					<input type="submit" class="btn app-btn-primary" value="{% translate "Seleccionar idioma" %}">
+				</form>
+			</div>
 	    </div><!--//app-content-->
-	    
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
@@ -376,7 +375,6 @@
 	    </footer><!--//app-footer-->
     </div><!--//app-wrapper-->    					
 
- 
     <!-- Javascript -->          
 	<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 	
