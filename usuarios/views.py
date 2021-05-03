@@ -14,6 +14,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin, AccessMixin
 from django.contrib.auth.models import Group
 from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy
 
 from .token import token_activacion
 from .models import Usuario, Municipio, Estado
@@ -23,8 +24,8 @@ class NuevoUsuario(PermissionRequiredMixin,CreateView):
     model = Usuario
     form_class = UsuarioForm
     permission_required = 'usuarios.add_usuario'
-    extra_context = {'etiqueta' : _('Nuevo'),
-    'boton' : _('Agregar'),
+    extra_context = {'etiqueta' : gettext_lazy('Nuevo'),
+    'boton' : gettext_lazy('Agregar'),
     'us_nuevo' : True}                
     success_url = reverse_lazy('usuarios:lista')
 
@@ -119,8 +120,8 @@ class UsuarioActualizar(PermissionRequiredMixin,UpdateView):
     model = Usuario
     permission_required = 'usuarios.change_usuario'
     form_class = UsuarioForm
-    extra_context = {'etiqueta' : _('Actualizar'),
-                     'boton' : _('Guardar')}
+    extra_context = {'etiqueta' : gettext_lazy('Editar'),
+                     'boton' : gettext_lazy('Guardar')}
     success_url = reverse_lazy('usuarios:lista')
 
 class UsuarioEliminar(PermissionRequiredMixin,DeleteView):
@@ -137,18 +138,44 @@ class LoginUsuario(LoginView):
     form_class = AuthenticationForm
 
 class SignUpUsuario(CreateView):
-    model = Usuario
     template_name = 'signup.html'
     form_class = UsuarioForm
-    success_url = reverse_lazy('usuarios:login')        
+    success_url = reverse_lazy('usuarios:login')
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+        user.is_active = False
+        user.save()
+        # Toma el dominio actual. Es muy util para produccion
+        dominio = get_current_site(self.request)
+        uid = urlsafe_base64_encode(force_bytes(user.id))
+        token = token_activacion.make_token(user)
+        # Le mandamos las variables requeridas en el formulario
+        mensaje = render_to_string('confirmar_cuenta.html',
+        {
+            'usuario' : user,
+            'dominio' : dominio,
+            'uid' : uid,
+            'token' : token
+        }
+        )
+        asunto = _('Activar cuenta en el Sistema de Videojuegos')
+        to = user.email
+        # En el to se puede poner una lista de usuarios
+        email = EmailMessage(
+            asunto,
+            mensaje,
+            to=[to]
+            )
+        email.content_subtype = 'html'
+        email.send()
+
+        return super().form_valid(form)
 
 def logout(request):
     auth.logout(request)
     return redirect('usuarios:login')
 
 def modificar_usuario_grupo(request,id):
-    
     usuario = Usuarios.objects.get(id=id)
-
-
     return redirect('usuario:lista')

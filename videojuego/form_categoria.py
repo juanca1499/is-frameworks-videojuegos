@@ -1,6 +1,6 @@
 from django import forms
 from .models import Categoria
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 class CategoriaForm(forms.ModelForm):
     class Meta:

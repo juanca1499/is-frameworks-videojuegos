@@ -1,20 +1,28 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 class VideoJuego(models.Model):
-    titulo = models.CharField('Titulo', max_length=50, unique=True)
-    anio = models.IntegerField('Año')
-    categoria = models.ForeignKey("videojuego.Categoria",
-    verbose_name='Categoría',on_delete=models.CASCADE)
+    titulo = models.CharField(_('Título'), max_length=50, unique=True)
+    anio = models.IntegerField(_('Año'))
+    categoria = models.ForeignKey("videojuego.Categoria",verbose_name=_('Categoría'),on_delete=models.CASCADE)
     precio = models.DecimalField(max_digits=5, decimal_places=2)
-    descripcion = models.CharField('Descripcion',max_length=250,
+    descripcion = models.CharField(_('Descripción'),max_length=250,
     null=True, blank=True)
 
     def __str__(self):
         return self.titulo
+
+    class Meta:
+        verbose_name = _('Videojuego')
+        verbose_name_plural = _('Videojuegos')
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nombre
+
+    class Meta:
+        verbose_name = _('Categoría')
+        verbose_name_plural = _('Categorías')
     

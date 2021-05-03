@@ -1,7 +1,7 @@
 from django import forms 
 from .models import Usuario
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 class UsuarioForm(forms.ModelForm):
     # password = forms.CharField(widget=forms.PasswordInput)

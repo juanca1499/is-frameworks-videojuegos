@@ -8,10 +8,13 @@ from django.db.models import Count
 from django.conf import settings
 from django.core.paginator import Paginator
 from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy
+
 from .models import Categoria, VideoJuego
 from .form_categoria import CategoriaForm
 from .form_videojuego import VideoJuegoForm
 from .form_videojuego import VideoJuegoForm
+
 
 #################################
 ## VISTAS BASADAS EN FUNCIONES ##
@@ -124,8 +127,8 @@ class VideoJuegoEliminar(DeleteView):
 class VideoJuegoCrear(CreateView):
     model = VideoJuego
     form_class = VideoJuegoForm
-    extra_context = {'etiqueta' : _('Nuevo'),
-    'boton' : _('Agregar'),
+    extra_context = {'etiqueta' : gettext_lazy('Nuevo'),
+    'boton' : gettext_lazy('Agregar'),
     'vj_nuevo' : True}
     # fields = '__all__'
     success_url = reverse_lazy('videojuego:lista')
@@ -133,8 +136,8 @@ class VideoJuegoCrear(CreateView):
 class VideoJuegoActualizar(UpdateView):
     model = VideoJuego
     form_class = VideoJuegoForm
-    extra_context = {'etiqueta' : _('Actualizar'),
-    'boton' : _('Guardar')}
+    extra_context = {'etiqueta' : gettext_lazy('Editar'),
+    'boton' : gettext_lazy('Guardar')}
     success_url = reverse_lazy('videojuego:lista')
 
 class VideoJuegoDetalle(DetailView):
@@ -172,7 +175,7 @@ class VistaVideoJuegosPDF(ListView):
         context = self.get_context_data(**kwargs)
         return self.render_to_response(context)
 
-class ListaVideoJuegosPDF(WeasyTemplateResponseMixin, VistaVideoJuegosPDF):
+class ListaVideoJuegosPDF(WeasyTemplateResponseMixin,VistaVideoJuegosPDF):
     # output of MyModelView rendered as PDF with hardcoded CSS
     pdf_stylesheets = [
         settings.STATICFILES_DIRS[0] + 'css/bootstrap.min.css',
