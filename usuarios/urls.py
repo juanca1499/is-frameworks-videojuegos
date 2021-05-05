@@ -19,8 +19,7 @@ urlpatterns = [
     path(_('logout/'),views.logout,name='logout'),
     path(_('signup/'),views.SignUpUsuario.as_view(),name='signup'),
     path(_('activar/<slug:uid64>/<slug:token>'),views.ActivarCuenta.as_view(),name='activar'),
-    path(_('usuario-grupos/<int:id>'),views.obtiene_usuario_grupos,name='usuario_grupos'),
-    path(_('modificar-grupos/<int:id>'),views.modificar_usuario_grupo,name='modificar_usuario_grupo')
+    path(_('modificar-grupos/<int:id>'),views.modificar_usuario_grupo,name='modificar_usuario_grupo'),
 ]
 
 # eliminar/<int:id> Para indicar la recepción de un 

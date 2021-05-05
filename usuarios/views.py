@@ -92,20 +92,6 @@ def obtiene_municipios(request):
                      'nombre' : municipio.nombre})
     return JsonResponse(json, safe=False)
 
-def obtiene_usuario_grupos(request,id):
-    if request.method != 'GET':
-        return JsonResponse({'error':_('Petición incorrecta')}, safe=False, status=403)
-    id_usuario = request.GET.get('id')
-    grupos = Groups.objects.filter(user_id=id_usuario)
-    print(grupos)
-    json = []
-    if not grupos:
-        json.append({'error' : _('El usuario no tiene grupos asignados')})
-    for grupo in grupos:
-        json.append({'id_usuario' :id_usuario,
-                     'id_grupo' :grupo})
-    return JsonResponse(json, safe=False)
-
 class UsuarioList(PermissionRequiredMixin,ListView):
     paginate_by = 5
     model = Usuario
@@ -177,5 +163,36 @@ def logout(request):
     return redirect('usuarios:login')
 
 def modificar_usuario_grupo(request,id):
-    usuario = Usuarios.objects.get(id=id)
-    return redirect('usuario:lista')
+    grupos = [grupo.id for grupo in Group.objects.all()]
+    usuario = Usuario.objects.get(id=id)
+
+    # El usuario tiene por lo menos un grupo asignado dado que en el arreglo
+    # viene el token y algún grupo a asignar.
+    if len(request.POST) > 1: 
+        usuario.groups.clear()
+        for item in request.POST:
+            if request.POST[item] == 'on':
+                usuario.groups.add(Group.objects.get(id=int(item)))
+                
+        messages.success(request, gettext_lazy(f'Se agregó al usuario {usuario} a los grupos'))
+    # El usuario no tiene ningún grupo asignado
+    else:
+        messages.error(request, gettext_lazy('El usuario debe pertenecer a un grupo como mínimo'))
+    
+    return redirect('usuarios:lista')
+
+# def cambia_grupo(request, id_gpo, id_usuario):
+#     grupo = Group.objects.get(id=id_gpo)
+#     usuario = Usuario.objects.get(id=id_usuario)
+    
+#     if grupo in usuario.groups.all():
+#         if usuario.groups.count() <= 1:
+#             messages.error(request, gettext_lazy('El usuario debe pertenecer a un grupo como mínimo'))
+#         else:
+#             usuario.groups.remove(grupo)
+#             messages.success(request, gettext_lazy(f'El usuario {usuario} ya no pertenece al grupo {grupo}'))
+#     else:
+#         usuario.groups.add(grupo)
+#         messages.success(request, gettext_lazy(f'El usuario {usuario} se agregó al grupo {grupo}'))
+    
+#     return redirect('usuarios:lista')

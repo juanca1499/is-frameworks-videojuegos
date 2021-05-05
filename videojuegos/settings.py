@@ -163,3 +163,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'garciamjuancarlos14@gmail.com'
 EMAIL_HOST_PASSWORD = '?????'
 EMAIL_PORT = 587
+
+# Duración de la sesión en segundos 
+# SESSION_COOKIE_AGE = 300
