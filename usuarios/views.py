@@ -174,7 +174,7 @@ def modificar_usuario_grupo(request,id):
             if request.POST[item] == 'on':
                 usuario.groups.add(Group.objects.get(id=int(item)))
                 
-        messages.success(request, gettext_lazy(f'Se agregó al usuario {usuario} a los grupos'))
+        messages.success(request, gettext_lazy(f'Se agregó al usuario {usuario} a los usuarios'))
     # El usuario no tiene ningún grupo asignado
     else:
         messages.error(request, gettext_lazy('El usuario debe pertenecer a un grupo como mínimo'))
