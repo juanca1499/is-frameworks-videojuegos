@@ -28,7 +28,9 @@ urlpatterns = [
     # Include recibe el nombre de la aplicación .urls
     path(_('categorias/'),include('videojuego.urls_categoria')),
     path(_('videojuegos/'),include('videojuego.urls_videojuego')),
-    path(_('usuarios/'),include('usuarios.urls'))
+    path(_('usuarios/'),include('usuarios.urls')),
+    path(_('articulos/'),include('articulos.urls')),
+    path(_('ventas/'),include('ventas.urls')),
 ]   + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

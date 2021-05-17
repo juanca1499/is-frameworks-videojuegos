@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'videojuego',
     'usuarios',
+    'ventas',
+    'articulos',
 ]
 
 MIDDLEWARE = [

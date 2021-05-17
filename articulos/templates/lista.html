@@ -1,0 +1,29 @@
+{% extends "dashboard_cliente.html" %}
+{% load static %}
+
+{% block titulo %}
+    Artículos
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/extra.css' %}">
+{% endblock %}
+
+{% block contenido %}
+    <h1>Lista de articulos</h1>
+    <div id="main" class="product-list">
+        {% for articulo in articulos %}
+            <div class="item">
+                <div>
+                    <a href="{% url 'articulos:detalle' articulo.id %}">
+                        <img class="image" alt="Sin imagen" width="280" height="411" src="{{MEDIA_URL}}{{articulo.foto}}">
+                    </a>
+                </div>
+                <a href="">{{ articulo.titulo }}</a><br>
+                {{ articulo.anio }}
+                <br>
+                ${{ articulo.precio }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from .validators import foto_validator
 
 class VideoJuego(models.Model):
     titulo = models.CharField(_('Título'), max_length=50, unique=True)
@@ -8,6 +9,7 @@ class VideoJuego(models.Model):
     precio = models.DecimalField(_('Precio'),max_digits=5, decimal_places=2)
     descripcion = models.CharField(_('Descripción'),max_length=250,
     null=True, blank=True)
+    foto = models.ImageField(_("Foto"), upload_to='articulos', blank=True, null=True, validators=[foto_validator])
 
     def __str__(self):
         return self.titulo
