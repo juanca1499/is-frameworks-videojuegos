@@ -1,21 +1,19 @@
 {% extends 'dashboard_cliente.html' %}
 {% load static %}
 
-{% block title %}
-    {{ product.name }}
+{% block titulo %}
+   Detalle del artículo
 {% endblock %}
 
-{% block content %}
+{% block contenido %}
+    <h1>Detalle del artículo</h1>
     <div class="product-detail">
-        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
-        <h1>{{ product.name }}</h1>
-        <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
-        <p class="price">${{ product.price }}</p>
-        <form action="{% url "cart_add" product.id %}" method="post">
-            {{ cart_product_form }}
-            {% csrf_token %}
-            <input type="submit" value="Add to cart">
+        <img class="image" alt="Sin imagen" width="280" height="411" src="{{MEDIA_URL}}{{articulo.foto}}">
+        <h1>{{ articulo.titulo }}</h1>
+        <p class="price">${{ articulo.precio }}</p>
+        <form action="" method="post">
+            <input type="submit" class="btn btn-info" value="Añadir al carrito">
         </form>
-        {{ product.description|linebreaks }}
+        {{ articulo.descripcion|linebreaks }}
     </div>
 {% endblock %}

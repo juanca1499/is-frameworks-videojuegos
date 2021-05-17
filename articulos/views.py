@@ -9,5 +9,7 @@ def lista(request):
     extra_context = {'articulos' : articulos}
     return render(request,'lista.html', extra_context)
 
-def detalle(request):
-    return render(request,'detalle.html')
+def detalle(request,pk):
+    articulo = VideoJuego.objects.get(id=pk)
+    extra_context = {'articulo' : articulo}
+    return render(request,'detalle.html', extra_context)
