@@ -11,9 +11,19 @@
         <img class="image" alt="Sin imagen" width="280" height="411" src="{{MEDIA_URL}}{{articulo.foto}}">
         <h1>{{ articulo.titulo }}</h1>
         <p class="price">${{ articulo.precio }}</p>
+        {{ articulo.descripcion|linebreaks }}
         <form action="" method="post">
+            {% csrf_token %}
+            <div>
+                Cantidad:
+                <select name="cantidad">
+                    {% for i in '123456789'|make_list %}
+                        <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <br>
             <input type="submit" class="btn btn-info" value="Añadir al carrito">
         </form>
-        {{ articulo.descripcion|linebreaks }}
     </div>
 {% endblock %}

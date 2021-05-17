@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Lista de articulos</h1>
+    <h1>Lista de artículos</h1>
     <div id="main" class="product-list">
         {% for articulo in articulos %}
             <div class="item">
@@ -23,6 +23,8 @@
                 {{ articulo.anio }}
                 <br>
                 ${{ articulo.precio }}
+                <br>
+                <b>Stock: {{articulo.cantidad}}</b>
             </div>
         {% endfor %}
     </div>

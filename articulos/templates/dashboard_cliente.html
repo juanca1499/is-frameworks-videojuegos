@@ -50,7 +50,7 @@
 				        </form>
 		            </div><!--//app-search-box-->
 		            <div class="app-utilities col-auto">
-						<a class="btn app-btn-primary" href="{% url 'usuarios:login' %}">{% translate "Iniciar sesión" %}</a>
+						<a href=""><img src="{% static 'images/carrito.png' %}" width="40" height="40">{% if articulos_anadidos %}Ver carrito{% else %}Carrito vacío{% endif %}</a>
 		            </div><!--//app-utilities-->
 		        </div><!--//row-->
 	            </div><!--//app-header-content-->

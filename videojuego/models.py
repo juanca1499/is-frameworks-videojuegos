@@ -6,6 +6,7 @@ class VideoJuego(models.Model):
     titulo = models.CharField(_('Título'), max_length=50, unique=True)
     anio = models.IntegerField(_('Año'))
     categoria = models.ForeignKey("videojuego.Categoria",verbose_name=_('Categoría'),on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(_("Cantidad"), default=1)
     precio = models.DecimalField(_('Precio'),max_digits=5, decimal_places=2)
     descripcion = models.CharField(_('Descripción'),max_length=250,
     null=True, blank=True)
