@@ -154,7 +154,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # a la página de login si no se ha iniciado sesión.
 LOGIN_URL = reverse_lazy('usuarios:login')
 # URL para reedirigir cuando se inicie sesión.
-LOGIN_REDIRECT_URL = reverse_lazy('usuarios:lista')
+LOGIN_REDIRECT_URL = reverse_lazy('articulos:lista')
 # URL para reedirigir cuando se cierre sesión.
 LOGOUT_REDIRECT_URL = reverse_lazy('usuarios:login')
 
@@ -167,4 +167,4 @@ EMAIL_HOST_PASSWORD = '?????'
 EMAIL_PORT = 587
 
 # Duración de la sesión en segundos 
-# SESSION_COOKIE_AGE = 300
+#SESSION_COOKIE_AGE = 300

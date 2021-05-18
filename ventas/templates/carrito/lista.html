@@ -1,0 +1,59 @@
+{% extends "dashboard_cliente.html" %}
+{% load static %}
+
+{% block titulo %}
+    Carrito
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/extra.css' %}">
+{% endblock %}
+
+{% block contenido %}
+    {% if request.session.articulos|length > 0 %}
+        <h1 class="app-page-title">Artículos en el carrito</h1>
+        <div class="app-card app-card-orders-table shadow-sm mb-5">
+            <table class="table table-hover">
+                <thead>
+                    <th>Foto</th>
+                    <th>Título</th>
+                    <th>Año</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Opciones</th>
+                </thead>
+                <tbody>
+                    <form action="{% url 'ventas:comprar' %}" method="POST">
+                        {% csrf_token %}
+                        {% for articulo in articulos %}
+                            <tr>
+                                <td>
+                                    <img alt="Sin imagen" width="110" height="150" src="{{MEDIA_URL}}{{articulo.foto}}">
+                                </td>
+                                <td>{{ articulo.titulo }}</td>
+                                <td>{{ articulo.anio }}</td>
+                                <td>${{ articulo.precio }}</td>
+                                {% for id, cantidad in request.session.articulos.items %}
+                                    {% if articulo.id|stringformat:'s' == id|stringformat:'s' %}
+                                        <td>{{ cantidad }}</td>
+                                    {% endif %}
+                                {% endfor %}
+                                <td><a href="{% url 'ventas:eliminar_item_carrito' articulo.id %}">Eliminar</a></td>
+                            </tr>
+                        {% endfor %}
+                        <tr class="total">
+                            <td>Total</td>
+                            <td colspan="4"></td>
+                            <td class="num">${{ request.session.total }}</td>
+                        </tr>
+                        <p class="text-right">
+                            <input type="submit" class="btn btn-secondary" value="Confirmar compra">
+                        </p>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <h1 class="app-page-title">EL CARRITO ESTÁ VACÍO</h1>
+    {% endif %}
+ {% endblock %}

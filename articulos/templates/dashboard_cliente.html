@@ -50,7 +50,7 @@
 				        </form>
 		            </div><!--//app-search-box-->
 		            <div class="app-utilities col-auto">
-						<a href=""><img src="{% static 'images/carrito.png' %}" width="40" height="40">{% if articulos_anadidos %}Ver carrito{% else %}Carrito vacío{% endif %}</a>
+						<a href="{% url 'ventas:carrito' %}"><img src="{% static 'images/carrito.png' %}" width="40" height="40">{% if carrito_vacio == False %}Ver carrito{% else %}Carrito vacío{% endif %}</a>
 		            </div><!--//app-utilities-->
 		        </div><!--//row-->
 	            </div><!--//app-header-content-->
@@ -61,7 +61,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="index.html"><img class="logo-icon mr-2" src="{% static 'favicon.png' %}" alt="logo"><span class="logo-text">{% translate "TIENDA" %}</span></a>
+		            <a class="app-logo" href="{% url 'articulos:lista' %}"><img class="logo-icon mr-2" src="{% static 'favicon.png' %}" alt="logo"><span class="logo-text">{% translate "TIENDA" %}</span></a>
 	
 		        </div><!--//app-branding-->  
 	        </div><!--//sidepanel-inner-->

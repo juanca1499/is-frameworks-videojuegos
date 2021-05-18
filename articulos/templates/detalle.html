@@ -12,18 +12,30 @@
         <h1>{{ articulo.titulo }}</h1>
         <p class="price">${{ articulo.precio }}</p>
         {{ articulo.descripcion|linebreaks }}
-        <form action="" method="post">
-            {% csrf_token %}
-            <div>
-                Cantidad:
-                <select name="cantidad">
-                    {% for i in '123456789'|make_list %}
-                        <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <br>
-            <input type="submit" class="btn btn-info" value="Añadir al carrito">
-        </form>
+        {% if articulo.cantidad > 0 %}
+            <form action="{% url 'ventas:carrito' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    Cantidad:
+                    <select name="cantidad">
+                        {% if articulo.cantidad > 9 %}
+                            {% for i in '123456789'|make_list %}
+                                <option value="{{ forloop.counter }}" name="cantidad">{{ forloop.counter }}</option>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in articulo.cantidad|make_list %}
+                                <option value="{{ forloop.counter }}" name="cantidad">{{ forloop.counter }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+                <br>
+                <input type="hidden" name="precio" value="{{articulo.precio}}">
+                <input type="hidden" name="id" value="{{articulo.id}}">
+                <input type="submit" class="btn btn-warning" value="Añadir al carrito">
+            </form>
+        {% else %}
+            <h3>NO DISPONIBLE</h3>
+        {% endif %}
     </div>
 {% endblock %}

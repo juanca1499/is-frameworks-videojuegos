@@ -126,3 +126,11 @@
 .order-info span {
     float:right;
 }
+
+table.cart {
+  margin-bottom:40px;
+}
+
+table.cart img {
+  width:180px;
+}

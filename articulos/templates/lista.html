@@ -6,10 +6,17 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/extra.css' %}">
+    <link rel="stylesheet" href="{% static 'css/extra.css' %}">
 {% endblock %}
 
 {% block contenido %}
+{% if messages %}
+		{% for mensaje in messages %}
+			<div class="alert alert-{% if message.tags == 'error' %}danger{% else %}success{% endif %}">
+				{{mensaje}}
+			</div>
+		{% endfor %}
+{% endif %}
     <h1>Lista de artículos</h1>
     <div id="main" class="product-list">
         {% for articulo in articulos %}
@@ -24,7 +31,11 @@
                 <br>
                 ${{ articulo.precio }}
                 <br>
-                <b>Stock: {{articulo.cantidad}}</b>
+                {% if articulo.cantidad > 0 %}
+                    <b>Stock: {{articulo.cantidad}}</b>
+                {% else %}
+                <b>NO DISPONIBLE</b>
+                {% endif %}
             </div>
         {% endfor %}
     </div>

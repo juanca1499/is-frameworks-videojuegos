@@ -1,8 +1,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import User
 
 class Venta(models.Model):
-    usuario = models.ForeignKey("usuarios.Usuario", verbose_name=_("Usuario"), on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, verbose_name=_("Usuario"), on_delete=models.CASCADE)
     fecha = models.DateField(auto_now_add=True)
     pagada = models.BooleanField(_("Pagada"),default=False)
 

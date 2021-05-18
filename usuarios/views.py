@@ -122,6 +122,11 @@ class UsuarioDetalle(PermissionRequiredMixin,DetailView):
 class LoginUsuario(LoginView):
     template_name = 'login.html'
     form_class = AuthenticationForm
+    
+    def get_success_url(self):
+        self.request.session['articulos'] = {}
+        self.request.session['total'] = 0.0
+        return super().get_success_url()
 
 class SignUpUsuario(CreateView):
     template_name = 'signup.html'
@@ -180,19 +185,3 @@ def modificar_usuario_grupo(request,id):
         messages.error(request, gettext_lazy('El usuario debe pertenecer a un grupo como mínimo'))
     
     return redirect('usuarios:lista')
-
-# def cambia_grupo(request, id_gpo, id_usuario):
-#     grupo = Group.objects.get(id=id_gpo)
-#     usuario = Usuario.objects.get(id=id_usuario)
-    
-#     if grupo in usuario.groups.all():
-#         if usuario.groups.count() <= 1:
-#             messages.error(request, gettext_lazy('El usuario debe pertenecer a un grupo como mínimo'))
-#         else:
-#             usuario.groups.remove(grupo)
-#             messages.success(request, gettext_lazy(f'El usuario {usuario} ya no pertenece al grupo {grupo}'))
-#     else:
-#         usuario.groups.add(grupo)
-#         messages.success(request, gettext_lazy(f'El usuario {usuario} se agregó al grupo {grupo}'))
-    
-#     return redirect('usuarios:lista')
